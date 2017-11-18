@@ -1,7 +1,7 @@
 let isValid = false;
 let imageDownloadable = false;
 let file;
-let drawMethod;
+let drawMethod = "drawMethod1";
 
 $(document).ready(function() {
   console.log("Document Loaded.");
@@ -55,12 +55,14 @@ $(".createPic").on("click", function() {
   else {
     switch (drawMethod) {
       case "drawMethod1":
-        // TODO: draw function 1
+        imageDownloadable = false;
+        temp1();
         console.log("temp1");
         imageDownloadable = true;
         break;
       case "drawMethod2":
-        // TODO: draw function 2
+        imageDownloadable = false;
+        temp2();
         console.log("temp2");
         imageDownloadable = true;
         break;
