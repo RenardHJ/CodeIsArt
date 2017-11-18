@@ -3,6 +3,16 @@ let imageDownloadable = false;
 let file;
 let drawMethod = "drawMethod1";
 
+var pythonRegexDict = {
+  "class": "class .+:",
+  "function": "def .+:",
+  "for": "for .+:",
+  "while": "while .+:",
+  "if": "if .+:",
+  "else if": "elif .+:",
+  "else": "else:"
+}
+
 $(document).ready(function() {
   console.log("Document Loaded.");
 });
@@ -28,30 +38,35 @@ $("#fileinput").change(function() {
         // Entire file
         console.log(this.result);
 
+        var outputJson = {
+          "type": "program",
+          "name": fileName,
+          "body": []
+        }
         // By lines
         var lines = this.result.split('\n');
         for (var line = 0; line < lines.length; line++) {
           // TODO: parse line
           console.log(lines[line]);
-          if(lines[line].match("class .+:")) {
+          if(lines[line].match(pythonRegexDict["class"])) {
             // define a class
           }
-          else if (lines[line].match("def .+:")){
+          else if (lines[line].match(pythonRegexDict["function"])){
             // define a function
           }
-          else if (lines[line].match("for .+:")) {
+          else if (lines[line].match(pythonRegexDict["for"])) {
             // for loop
           }
-          else if (lines[line].match("while .+:")){
+          else if (lines[line].match(pythonRegexDict["while"])){
             // while loop
           }
-          else if (lines[line].match("else:")) {
+          else if (lines[line].match(pythonRegexDict["else"])) {
             // else statement
           }
-          else if (lines[line].match("elif .+:")){
+          else if (lines[line].match(pythonRegexDict["else if"])){
             // else if statement
           }
-          else if (lines[line].match("if .+:")){
+          else if (lines[line].match(pythonRegexDict["if"])){
             // if statement
           }
           else{
