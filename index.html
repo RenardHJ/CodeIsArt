@@ -47,7 +47,7 @@
 
             <div class="row">
                 <div class="col-lg-12">
-                    <h2>Step 1. Load a python file</h2>
+                    <h2>Step 1. Load a .py or .json file</h2>
                 </div>
             </div>
 
@@ -80,17 +80,14 @@
             <br />
 
             <div class="row">
-                <div class="col-lg-12">
-                    <!--
-                    <img id="bufferImg" height="500", width="500"/>
-                    -->
-                    <canvas id="drawingCanvas">
-                    </canvas>
+                <div class="col-lg-12" class="canvas_container">
+                    <canvas id="drawingCanvas" class="canvas_canvas"></canvas>
+                    <!-- <img id="mirror" class="canvas_mirror"/> -->
                 </div>
             </div>
-            <button class="btn btn-primary downloadPic" style="margin: 16px; margin-bottom: 0;">
+            <a id="downloadPic" class="btn btn-primary downloadPic" style="margin: 16px; margin-bottom: 0;">
               <i class="fa fa-download" aria-hidden="true"></i> Download Image
-            </button>
+            </a>
         </div>
         <br />
 

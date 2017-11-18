@@ -2,6 +2,10 @@ let isValid = false;
 let imageDownloadable = false;
 let file;
 
+$( document ).ready(function() {
+  console.log("Document Loaded.");
+});
+
 // check if a correct file type is selected
 $("#fileinput").change(function()
 {
@@ -13,6 +17,7 @@ $("#fileinput").change(function()
     else isValid = true;
 
     file = this.value;
+    fileName = file.split('.')[0]
 });
 
 // navigate the tab
@@ -24,13 +29,15 @@ $(".nav a").on("click", function()
     return false;
 });
 
-// if download button is clicked
-$(".downloadPic").on("click", function()
-{
-    if(!imageDownloadable) alert("No image to download!");
+document.getElementById('downloadPic').addEventListener('click', function() {
+  if(imageDownloadable) alert("No image to download!");
+  else downloadCanvas(this, 'drawingCanvas', fileName + '.png');
+}, false);
 
-    return false;
-});
+function downloadCanvas(link, canvasId, filename) {
+    link.href = document.getElementById(canvasId).toDataURL();
+    link.download = filename;
+}
 
 // If create image button is clicked
 $(".createPic").on("click", function()
