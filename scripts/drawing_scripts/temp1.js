@@ -1,7 +1,12 @@
 function temp1()
 {
-  let canvas = document.getElementById("drawingCanvas");
-  let ctx = canvas.getContext("2d");
+  var stage = new createjs.Stage("drawingCanvas");
 
-  ctx.fillRect(36, 10, 22, 12);
+  var circle = new createjs.Shape();
+  circle.graphics.beginFill("DeepSkyBlue").drawCircle(0, 0, 50);
+  circle.x = 100;
+  circle.y = 100;
+  stage.addChild(circle);
+
+  stage.update();
 }
