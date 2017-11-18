@@ -1,2 +1,5 @@
 # Ignore nodemodules. Build locally using Yarn
 # node_modules
+
+#
+.DS_Store
