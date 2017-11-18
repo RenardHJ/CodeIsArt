@@ -17,7 +17,9 @@ $("#fileinput").change(function()
     else isValid = true;
 
     file = this.value;
-    fileName = file.split('.')[0]
+    fileName = file.split('.')[0];
+    fileName = fileName.split("C:\\fakepath\\")[1];
+    console.log(fileName);
 });
 
 // navigate the tab
