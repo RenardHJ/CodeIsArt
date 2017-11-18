@@ -11,6 +11,7 @@
   "license": "MIT",
   "dependencies": {
     "bootstrap": "^3.3.7",
+    "bootstrap-filestyle": "^1.2.1",
     "font-awesome": "^4.7.0",
     "jquery": "^3.2.1",
     "p5": "^0.5.16"

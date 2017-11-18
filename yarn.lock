@@ -10,6 +10,10 @@ amdefine@>=0.0.4:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
 
+bootstrap-filestyle@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/bootstrap-filestyle/-/bootstrap-filestyle-1.2.1.tgz#4164271d5b101ec867565eebbdab25d210a581a0"
+
 bootstrap@^3.3.7:
   version "3.3.7"
   resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-3.3.7.tgz#5a389394549f23330875a3b150656574f8a9eb71"
