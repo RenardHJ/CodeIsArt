@@ -22,16 +22,43 @@ $("#fileinput").change(function() {
 
     file = this.files[0];
 
-    var reader = new FileReader();
-    reader.onload = function(progressEvent) {
-      // Entire file
-      console.log(this.result);
+    if (this.value.substr(this.value.length - 3) == ".py"){
+      var reader = new FileReader();
+      reader.onload = function(progressEvent) {
+        // Entire file
+        console.log(this.result);
 
-      // By lines
-      var lines = this.result.split('\n');
-      for (var line = 0; line < lines.length; line++) {
-        // TODO: parse line
-        console.log(lines[line]);
+        // By lines
+        var lines = this.result.split('\n');
+        for (var line = 0; line < lines.length; line++) {
+          // TODO: parse line
+          console.log(lines[line]);
+          if(lines[line].match("class .+:")) {
+            // define a class
+          }
+          else if (lines[line].match("def .+:")){
+            // define a function
+          }
+          else if (lines[line].match("for .+:")) {
+            // for loop
+          }
+          else if (lines[line].match("while .+:")){
+            // while loop
+          }
+          else if (lines[line].match("else:")) {
+            // else statement
+          }
+          else if (lines[line].match("elif .+:")){
+            // else if statement
+          }
+          else if (lines[line].match("if .+:")){
+            // if statement
+          }
+          else{
+            // non foldable line
+          }
+
+        }
       }
     }
   };
