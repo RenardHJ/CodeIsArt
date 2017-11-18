@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2017 Ahsen Ershad, Jordan Lawrence, Erik Malone, Hunter Renard
+Copyright (c) 2017 Aaron Dyke, Hunter Renard
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
