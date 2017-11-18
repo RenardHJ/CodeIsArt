@@ -1,6 +1,7 @@
 let isValid = false;
 let imageDownloadable = false;
 let file;
+let drawMethod;
 
 $( document ).ready(function() {
   console.log("Document Loaded.");
@@ -28,18 +29,11 @@ $(".nav a").on("click", function()
     $(".nav .active").removeClass("active");
     $(this).parent().addClass("active");
 
+    drawMethod = $(this).parent().attr('id');
+    console.log(drawMethod);
+
     return false;
 });
-
-document.getElementById('downloadPic').addEventListener('click', function() {
-  if(!imageDownloadable) alert("No image to download!");
-  else downloadCanvas(this, 'drawingCanvas', fileName + '.png');
-}, false);
-
-function downloadCanvas(link, canvasId, filename) {
-    link.href = document.getElementById(canvasId).toDataURL();
-    link.download = filename;
-}
 
 // If create image button is clicked
 $(".createPic").on("click", function()
