@@ -30,7 +30,7 @@ $(".nav a").on("click", function()
 });
 
 document.getElementById('downloadPic').addEventListener('click', function() {
-  if(imageDownloadable) alert("No image to download!");
+  if(!imageDownloadable) alert("No image to download!");
   else downloadCanvas(this, 'drawingCanvas', fileName + '.png');
 }, false);
 
