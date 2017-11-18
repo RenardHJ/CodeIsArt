@@ -1,0 +1,14 @@
+{
+    "type":"program",
+    "name":"example3",
+    "body": {
+        "1": "test = [\"AYE\",\"LMAO\",\"ITs LIT\",\"Coo\"]",
+        "2": {
+            "type": "for",
+            "interation": "word in test",
+            "body":{
+                "3": "print(word + (word[-1]*7))"
+            }
+        }
+    }
+}
