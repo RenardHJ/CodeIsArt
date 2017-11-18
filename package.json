@@ -1,0 +1,18 @@
+{
+  "name": "CodeIsArt",
+  "version": "0.1",
+  "description": "TODO",
+  "main": "index.html",
+  "repository": "TODO",
+  "author": [
+    "= <renardhj@gmail.com>",
+    "<AARON DYKE>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.2.1",
+    "p5": "^0.5.16"
+  }
+}
