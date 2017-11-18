@@ -1,0 +1,2 @@
+# Ignore nodemodules. Build locally using Yarn
+node_modules
