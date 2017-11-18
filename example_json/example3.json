@@ -1,14 +1,14 @@
 {
     "type":"program",
     "name":"example3",
-    "body": {
-        "1": "test = [\"AYE\",\"LMAO\",\"ITs LIT\",\"Coo\"]",
-        "2": {
+    "body": [
+        "test = [\"AYE\",\"LMAO\",\"ITs LIT\",\"Coo\"]",
+        {
             "type": "for",
             "interation": "word in test",
-            "body":{
-                "3": "print(word + (word[-1]*7))"
-            }
+            "body":[
+                "print(word + (word[-1]*7))"
+            ]
         }
-    }
+    ]
 }
