@@ -39,6 +39,20 @@ $(".nav a").on("click", function()
 $(".createPic").on("click", function()
 {
     if(!isValid) alert("No .py or .json file!");
+    else
+    {
+      switch(drawMethod)
+      {
+        case "drawMethod1":
+          // code block
+          console.log("temp1");
+          break;
+        case "drawMethod2":
+          // code block
+          console.log("temp2");
+          break;
+        }
+    }
 
     return false;
 });
