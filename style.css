@@ -19,8 +19,7 @@ h1, h2, h3
 }
 #drawingCanvas
 {
-
-    border: 1px solid #ddd;
+    border: 1px solid #dddddd;
     height: 400px;
     width: 100%;
 }
