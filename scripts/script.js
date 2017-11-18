@@ -15,12 +15,15 @@ $("#fileinput").change(function()
         isValid = false;
         alert("Not a .py file!");
     }
-    else isValid = true;
+    else
+    {
+      isValid = true;
 
     file = this.value;
     fileName = file.split('.')[0];
     fileName = fileName.split("C:\\fakepath\\")[1];
     console.log(fileName);
+  }
 });
 
 // navigate the tab
@@ -46,10 +49,12 @@ $(".createPic").on("click", function()
         case "drawMethod1":
           // code block
           console.log("temp1");
+          imageDownloadable = true;
           break;
         case "drawMethod2":
           // code block
           console.log("temp2");
+          imageDownloadable = true;
           break;
         }
     }
