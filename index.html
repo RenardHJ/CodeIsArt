@@ -11,7 +11,7 @@
         <link href='./node_modules/font-awesome/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
         <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 
-        <link type="test/css" rel="stylesheet" href="" />
+        <link type="test/css" rel="stylesheet" href="./style.css" />
 
         <script src=".node_modules/jquery/dist/jquery.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
         <script type="text/javascript" src="./node_modules/bootstrap/dist/js/bootstrap.min.js" /></script>
@@ -19,43 +19,7 @@
         <!-- p5.js -->
         <script type="text/javascript" src="./node_modules/p5/lib/p5.min.js"></script>
 
-        <script type="text/javascript" src="" ></script>
-
-        <style>
-            body
-            {
-                font-family:Lora;
-                font-size: 11pt;
-                background: white;
-            }
-            h1, h2, h3
-            {
-                font-family: 'Open Sans', Helvetica, Arial, sans-serif;
-                font-weight: 800;
-            }
-            .navbar-inverse a.navbar-brand
-            {
-                font-family: 'Open Sans', Helvetica, Arial, sans-serif;
-                color: white;
-                font-weight: 900;
-                font-size:200%;
-                border:none;
-            }
-            #drawingCanvas
-            {
-
-                border: 1px solid #ddd;
-                height: 400px;
-                width: 100%;
-            }
-            .navbar.navbar-inverse
-            {
-                background-color: #99ccff;
-                border: 0;
-                -webkit-box-shadow: none;
-                box-shadow: none;
-            }
-        </style>
+        <script type="text/javascript" src="script.js" ></script>
     </head>
 
     <body>
@@ -125,46 +89,5 @@
             <button class="btn btn-primary downloadPic" style="margin: 16px; margin-bottom: 0;"><i class="fa fa-download" aria-hidden="true"></i> Download Image</button>
         </div>
         <br />
-
-        <script>//
-            let isValid = false;
-            let imageDownloadable = false;
-            let file;
-
-            $("#fileinput").change(function()
-            {
-                if(this.value.substr(this.value.length - 3) != ".py" && this.value.substr(this.value.length - 3) != ".json")
-                {
-                    isValid = false;
-                    alert("Not a .py file!");
-                }
-                else isValid = true;
-
-                file = this.value;
-            });
-
-            $(".nav a").on("click", function()
-            {
-                $(".nav .active").removeClass("active");
-                $(this).parent().addClass("active");
-
-                return false;
-            });
-
-            $(".downloadPic").on("click", function()
-            {
-                if(!imageDownloadable) alert("No image to download!");
-
-                return false;
-            });
-
-            $(".createPic").on("click", function()
-            {
-                if(!isValid) alert("No .py or .json file!");
-
-                return false;
-            });
-        </script>
-
     </body>
 </html>

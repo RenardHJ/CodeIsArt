@@ -1,0 +1,33 @@
+body
+{
+    font-family:Lora;
+    font-size: 11pt;
+    background: white;
+}
+h1, h2, h3
+{
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    font-weight: 800;
+}
+.navbar-inverse a.navbar-brand
+{
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    color: white;
+    font-weight: 900;
+    font-size:200%;
+    border:none;
+}
+#drawingCanvas
+{
+
+    border: 1px solid #ddd;
+    height: 400px;
+    width: 100%;
+}
+.navbar.navbar-inverse
+{
+    background-color: #99ccff;
+    border: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
