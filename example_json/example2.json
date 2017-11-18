@@ -1,40 +1,40 @@
 {
 	"type": "program",
 	"name": "example2",
-	"body": {
-		"1": {
+	"body": [
+		{
 			"type": "class",
-			"body":{
-				"2": "\"\"\"Iterator for looping over a sequence backwards.\"\"\"",
-				"3": "#Test",
-				"4": {
+			"body": [
+				"\"\"\"Iterator for looping over a sequence backwards.\"\"\"",
+				"#Test",
+				{
 					"type": "function",
-					"body": {
-						"5": "self.data = data",
-						"6": "self.index = len(data)"
-					}
+					"body": [
+						"self.data = data",
+						"self.index = len(data)"
+					]
 				},
-				"7": {
-					"type":"function",
+				{
+					"type": "function",
 					"body": {
 						"8": "return self"
 					}
 				},
-				"9": {
+				{
 					"type": "function",
-					"body": {
-						"10": {
+					"body": [
+						{
 							"type": "if",
 							"condtion": "self.index == 0",
-							"body": {
-								"11": "raise StopIteration"
-							}
+							"body": [
+								"raise StopIteration"
+							]
 						},
-						"12": "self.index = self.index - 1",
-						"13": "return self.data[self.index]"
-					}
+						"self.index = self.index - 1",
+						"return self.data[self.index]"
+					]
 				}
-			}
+			]
 		}
-	}
+	]
 }
