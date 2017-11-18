@@ -30,6 +30,7 @@ $("#fileinput").change(function() {
       // By lines
       var lines = this.result.split('\n');
       for (var line = 0; line < lines.length; line++) {
+        // TODO: parse line
         console.log(lines[line]);
       }
     }
@@ -54,12 +55,12 @@ $(".createPic").on("click", function() {
   else {
     switch (drawMethod) {
       case "drawMethod1":
-        // code block
+        // TODO: draw function 1
         console.log("temp1");
         imageDownloadable = true;
         break;
       case "drawMethod2":
-        // code block
+        // TODO: draw function 2
         console.log("temp2");
         imageDownloadable = true;
         break;
