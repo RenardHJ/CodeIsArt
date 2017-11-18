@@ -1,0 +1,39 @@
+{
+	"type": "program",
+	"name": "example1"
+	"body"{
+		"1": "from random import randint",
+		"2": "x = 7",
+		"3": "anumEmotions = [\"happy\", \"not happy\",\"pretty happy\",\"pissed\"]",
+		"4": "anum = \"not happy\"",
+		"5": "maxNumber  =  randint(10,20)",
+		"6":{
+			"type": "while",
+			"condition": "x < maxNumber",
+			"body": {
+				"7": "x += 1",
+				"8": {
+					"type": "if",
+					"condition": "anum == \"not happy\"",
+					"body": {
+						"9": "print(\"anum totally sucks\")"
+					}
+				},
+				"10": {
+					"type": "elif",
+					"condtion": "anum == \"happy\"",
+					"body": {
+						"11": "print(\"anum is the dopest dope\")"
+					}
+				},
+				"12": {
+					"type": "else",
+					"body": {
+						"13": "print(f\"anum is {anum}\")"
+					}
+				},
+				"14": "anum = anumEmotions[randint(0,len(anumEmotions)-1)]"
+			}
+		}
+	}
+}
