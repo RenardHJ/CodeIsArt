@@ -15,12 +15,15 @@ $("#fileinput").change(function()
         isValid = false;
         alert("Not a .py file!");
     }
-    else isValid = true;
+    else
+    {
+      isValid = true;
 
     file = this.value;
     fileName = file.split('.')[0];
     fileName = fileName.split("C:\\fakepath\\")[1];
     console.log(fileName);
+  }
 });
 
 // navigate the tab
@@ -39,6 +42,22 @@ $(".nav a").on("click", function()
 $(".createPic").on("click", function()
 {
     if(!isValid) alert("No .py or .json file!");
+    else
+    {
+      switch(drawMethod)
+      {
+        case "drawMethod1":
+          // code block
+          console.log("temp1");
+          imageDownloadable = true;
+          break;
+        case "drawMethod2":
+          // code block
+          console.log("temp2");
+          imageDownloadable = true;
+          break;
+        }
+    }
 
     return false;
 });
