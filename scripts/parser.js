@@ -31,16 +31,6 @@ function parserFunction(lines){
         // TODO: parse line
         var currentDepth = (lines[line].search(/\S|$/)/4) >> 0;
 
-<<<<<<< HEAD
-        console.log(currentDepth);
-        console.log(depthStack);
-        console.log(depthString);
-=======
-        // if(currentDepth < previousDepth){
-        //     depthStack.pop();
-        // }
->>>>>>> 918e54c9d91c1283c49aca67bbc2e1d55ac6ba02
-
         if(currentDepth < previousDepth){
             depthStack.pop();
             depthStack[depthStack.length-1]++;
