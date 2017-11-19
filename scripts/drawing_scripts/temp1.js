@@ -40,7 +40,7 @@ function temp1() {
   var centerX = canvas.width / 2;
   var centerY = canvas.height / 2;
   var radius = 50;
-  rec(context, centerX, centerY, radius;
+  rec(context, centerX, centerY, radius);
 
   items = [0];
   li = 0;

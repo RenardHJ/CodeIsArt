@@ -7,6 +7,9 @@ let json;
 $(document).ready(function()
 {
   console.log("Document Loaded.");
+  var canvas = document.getElementById("drawingCanvas");
+  canvas.width = 600;
+  canvas.height = 600;
 });
 
 // check if a correct file type is selected
