@@ -27,6 +27,7 @@ function parserFunction(lines){
     var depthStack = [0];
     var previousDepth = -1;
     var depthString;
+    var conditional;
     for (var line = 0; line < lines.length; line++) {
         // TODO: parse line
         var currentDepth = (lines[line].search(/\S|$/)/4) >> 0;
@@ -50,11 +51,13 @@ function parserFunction(lines){
         }
         else if (lines[line].match(pythonRegexDict["for"])) {
             // for loop
-            eval(depthString+"  = {'type': 'for', 'iteration': '???', 'body':[]}");
+            conditional = lines[line].substring(lines[line].lastIndexOf("for ")+4,lines[line].lastIndexOf(":"));
+            eval(depthString+"  = {'type': 'for', 'iteration': conditional, 'body':[]}");
         }
         else if (lines[line].match(pythonRegexDict["while"])) {
             // while loop
-            eval(depthString+"  = {'type': 'while', 'condtion': '???', 'body':[]}");
+            conditional = lines[line].substring(lines[line].lastIndexOf("while ")+6,lines[line].lastIndexOf(":"));
+            eval(depthString+"  = {'type': 'while', 'condtion': conditional, 'body':[]}");
         }
         else if (lines[line].match(pythonRegexDict["else"])) {
             // else statement
@@ -62,11 +65,13 @@ function parserFunction(lines){
         }
         else if (lines[line].match(pythonRegexDict["else if"])) {
             // else if statement
-            eval(depthString+"  = {'type': 'else if', 'condition': '???', 'body':[]}");
+            conditional = lines[line].substring(lines[line].lastIndexOf("elif ")+5,lines[line].lastIndexOf(":"));
+            eval(depthString+"  = {'type': 'else if', 'condition': conditional, 'body':[]}");
         }
         else if (lines[line].match(pythonRegexDict["if"])) {
             // if statement
-            eval(depthString+"  = {'type': 'if', 'condition': '???', 'body':[]}");
+            conditional = lines[line].substring(lines[line].lastIndexOf("if ")+3,lines[line].lastIndexOf(":"));
+            eval(depthString+"  = {'type': 'if', 'condition': conditional, 'body':[]}");
         }
         else if (lines[line].match(pythonRegexDict["comment"])) {
             // comment
@@ -84,5 +89,6 @@ function parserFunction(lines){
         }
         previousDepth = currentDepth;
     }
+    console.log(outputJson);
     return outputJson;
 }
