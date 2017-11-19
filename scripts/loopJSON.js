@@ -1,4 +1,4 @@
-function loopJSON(obj)
+function depthFirst(obj)
 {
 
   jQuery.each( obj.body, function(i, val ) {
@@ -13,4 +13,12 @@ function loopJSON(obj)
         }
 
   });
+}
+
+function breadthFirst(obj)
+{
+
+  jQuery.each( obj.body, function(i, val ) {
+        console.log(i + " " + val);
+      });
 }
