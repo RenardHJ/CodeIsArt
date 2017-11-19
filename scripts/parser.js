@@ -57,7 +57,7 @@ function parserFunction(lines){
         else if (lines[line].match(pythonRegexDict["while"])) {
             // while loop
             conditional = lines[line].substring(lines[line].lastIndexOf("while ")+6,lines[line].lastIndexOf(":"));
-            eval(depthString+"  = {'type': 'while', 'condtion': conditional, 'body':[]}");
+            eval(depthString+"  = {'type': 'while', 'condition': conditional, 'body':[]}");
         }
         else if (lines[line].match(pythonRegexDict["else"])) {
             // else statement
