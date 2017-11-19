@@ -31,18 +31,10 @@ function parserFunction(lines){
         // TODO: parse line
         var currentDepth = (lines[line].search(/\S|$/)/4) >> 0;
 
-        // if(currentDepth < previousDepth){
-        //     depthStack.pop();
-        // }
-    
-
         console.log(currentDepth);
         console.log(depthStack);
         console.log(depthString);
 
-        // if(currentDepth == depthStack.length-1){
-        //     depthStack.push(0);
-        // }
         if(currentDepth < previousDepth){
             depthStack.pop();
             depthStack[depthStack.length-1]++;
@@ -84,12 +76,14 @@ function parserFunction(lines){
             // comment
             depthStack.pop();
             depthStack[depthStack.length-1]++;
+            lines[line] = lines[line].trim();
             eval(depthString+"  = lines[line]");
         }
         else {
             // non foldable line
             depthStack.pop();
             depthStack[depthStack.length-1]++;
+            lines[line] = lines[line].trim();
             eval(depthString+"  = lines[line]");
         }
         previousDepth = currentDepth;
