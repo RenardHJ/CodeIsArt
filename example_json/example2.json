@@ -16,9 +16,9 @@
 				},
 				{
 					"type": "function",
-					"body": {
-						"8": "return self"
-					}
+					"body": [
+						"return self"
+					]
 				},
 				{
 					"type": "function",
