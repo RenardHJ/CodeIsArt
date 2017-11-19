@@ -38,7 +38,11 @@ $("#fileinput").change(function()
     if (this.value.substr(this.value.length - 3) == ".py")
     {
       // parser.js
-      json = parse();
+      //json = parse();
+      var reader = new FileReader();
+      reader.onload = function (progressEvent) {
+      console.log(this.result);
+      }
     }
     else
     {
