@@ -9,4 +9,6 @@ function temp1()
   stage.addChild(circle);
 
   stage.update();
+
+  loopJSON(json)
 }
