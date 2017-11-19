@@ -42,6 +42,8 @@ $("#fileinput").change(function()
       var reader = new FileReader();
       reader.onload = function (progressEvent) {
       console.log(this.result);
+      var lines = this.result.split('\n');
+      json = parserFunction(lines);
       }
     }
     else

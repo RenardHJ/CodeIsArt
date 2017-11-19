@@ -1,16 +1,10 @@
-var reader = new FileReader();
-reader.onload = function (progressEvent) {
-    // Entire file
-    console.log(this.result);
-
+function parserFunction(lines){
     var outputJson = {
         "type": "program",
         "name": fileName,
         "body": []
     };
 
-    // By lines
-    var lines = this.result.split('\n');
     for (var line = 0; line < lines.length; line++) {
         // TODO: parse line
         var depth = lines[line].search(/\S|$/) % 4;
