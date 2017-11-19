@@ -2,6 +2,7 @@ let isValid = false;
 let imageDownloadable = false;
 let file;
 let drawMethod = "drawMethod1";
+let json;
 
 var pythonRegexDict = {
   "class": "class .+:",
@@ -13,13 +14,15 @@ var pythonRegexDict = {
   "else": "else:"
 };
 
-$(document).ready(function() {
+$(document).ready(function()
+{
   console.log("Document Loaded.");
 });
 
 // check if a correct file type is selected
-$("#fileinput").change(function() {
-  if (this.value.substr(this.value.length - 3) != ".py" && this.value.substr(this.value.length - 3) != ".json") {
+$("#fileinput").change(function()
+{
+  if (this.value.substr(this.value.length - 3) != ".py" && this.value.substr(this.value.length - 5) != ".json") {
     isValid = false;
     alert("Not a .py file!");
   } else {
@@ -32,15 +35,28 @@ $("#fileinput").change(function() {
 
     file = this.files[0];
 
-    if (this.value.substr(this.value.length - 3) == ".py"){
+    if (this.value.substr(this.value.length - 3) == ".py")
+    {
       // parser.js
+      json = parse();
+    }
+    else
+    {
+      var reader = new FileReader();
+      reader.onload = function (progressEvent) {
+        // Entire file
+        console.log(this.result);
+        json = JSON.parse(this.result);
+        console.log(json);
+      }
     }
   };
   reader.readAsText(file);
 });
 
 // navigate the tab
-$(".nav a").on("click", function() {
+$(".nav a").on("click", function()
+{
   $(".nav .active").removeClass("active");
   $(this).parent().addClass("active");
 
@@ -51,7 +67,8 @@ $(".nav a").on("click", function() {
 });
 
 // If create image button is clicked
-$(".createPic").on("click", function() {
+$(".createPic").on("click", function()
+{
   if (!isValid) alert("No .py or .json file!");
   else {
     switch (drawMethod) {

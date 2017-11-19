@@ -8,6 +8,7 @@ reader.onload = function (progressEvent) {
         "name": fileName,
         "body": []
     };
+
     // By lines
     var lines = this.result.split('\n');
     for (var line = 0; line < lines.length; line++) {
@@ -21,7 +22,7 @@ reader.onload = function (progressEvent) {
         }
         else if (lines[line].match(pythonRegexDict["function"])) {
             // define a function
-            console.log("fucntion");
+            console.log("function");
         }
         else if (lines[line].match(pythonRegexDict["for"])) {
             // for loop
