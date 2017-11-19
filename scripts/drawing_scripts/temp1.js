@@ -4,11 +4,28 @@ function temp1()
 
   var circle = new createjs.Shape();
   circle.graphics.beginFill("DeepSkyBlue").drawCircle(0, 0, 50);
-  circle.x = 100;
-  circle.y = 100;
+  circle.x = 10;
+  circle.y = 10;
   stage.addChild(circle);
 
   stage.update();
 
-  loopJSON(json);
+  loop2JSON(json);
+}
+
+function loop2JSON(obj)
+{
+
+  jQuery.each( obj.body, function(i, val ) {
+        if(val.hasOwnProperty('body'))
+        {
+          console.log(val.type);
+          loopJSON(val);
+        }
+        else
+        {
+          console.log(val);
+        }
+
+  });
 }
