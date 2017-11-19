@@ -10,5 +10,5 @@ function temp1()
 
   stage.update();
 
-  loopJSON(json)
+  loopJSON(json);
 }

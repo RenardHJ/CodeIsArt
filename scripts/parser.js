@@ -34,11 +34,6 @@ function parserFunction(lines){
         // if(currentDepth < previousDepth){
         //     depthStack.pop();
         // }
-    
-
-        console.log(currentDepth);
-        console.log(depthStack);
-        console.log(depthString);
 
         // if(currentDepth == depthStack.length-1){
         //     depthStack.push(0);
@@ -94,5 +89,4 @@ function parserFunction(lines){
         }
         previousDepth = currentDepth;
     }
-    console.log(outputJson);
 }

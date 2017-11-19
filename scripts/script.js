@@ -29,8 +29,8 @@ $("#fileinput").change(function()
       //json = parse();
       var reader = new FileReader();
       reader.onload = function (progressEvent) {
-      var lines = this.result.split('\n');
-      json = parserFunction(lines);
+        var lines = this.result.split('\n');
+        json = parserFunction(lines);
       }
     }
     else
@@ -38,12 +38,11 @@ $("#fileinput").change(function()
       var reader = new FileReader();
       reader.onload = function (progressEvent) {
         // Entire file
-        console.log(this.result);
         json = JSON.parse(this.result);
-        console.log(json);
       }
     }
   };
+  console.log(json);
   reader.readAsText(file);
 });
 
@@ -54,7 +53,6 @@ $(".nav a").on("click", function()
   $(this).parent().addClass("active");
 
   drawMethod = $(this).parent().attr('id');
-  console.log(drawMethod);
 
   return false;
 });
@@ -68,13 +66,11 @@ $(".createPic").on("click", function()
       case "drawMethod1":
         imageDownloadable = false;
         temp1();
-        console.log("temp1");
         imageDownloadable = true;
         break;
       case "drawMethod2":
         imageDownloadable = false;
         temp2();
-        console.log("temp2");
         imageDownloadable = true;
         break;
     }
