@@ -89,4 +89,5 @@ function parserFunction(lines){
         }
         previousDepth = currentDepth;
     }
+    return outputJson;
 }
