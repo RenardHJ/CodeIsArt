@@ -20,7 +20,7 @@ h1, h2, h3
 #drawingCanvas
 {
     border: 1px solid #dddddd;
-    height: 400px;
+    height: 600px;
     width: 100%;
 }
 .navbar.navbar-inverse
