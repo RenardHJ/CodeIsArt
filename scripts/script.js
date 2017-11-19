@@ -4,16 +4,6 @@ let file;
 let drawMethod = "drawMethod1";
 let json;
 
-var pythonRegexDict = {
-  "class": "class .+:",
-  "function": "def .+:",
-  "for": "for .+:",
-  "while": "while .+:",
-  "if": "if .+:",
-  "else if": "elif .+:",
-  "else": "else:"
-};
-
 $(document).ready(function()
 {
   console.log("Document Loaded.");
@@ -31,8 +21,6 @@ $("#fileinput").change(function()
     file = this.value;
     fileName = file.split('.')[0];
     fileName = fileName.split("C:\\fakepath\\")[1];
-    console.log(fileName);
-
     file = this.files[0];
 
     if (this.value.substr(this.value.length - 3) == ".py")
@@ -41,7 +29,6 @@ $("#fileinput").change(function()
       //json = parse();
       var reader = new FileReader();
       reader.onload = function (progressEvent) {
-      console.log(this.result);
       var lines = this.result.split('\n');
       json = parserFunction(lines);
       }

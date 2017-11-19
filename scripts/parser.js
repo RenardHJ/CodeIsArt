@@ -1,47 +1,98 @@
+function depthStringGenerator(depthStack){
+    var depthString = "outputJson";
+    for(var itemDepth in depthStack){
+        depthString = depthString.concat(".body[" + depthStack[itemDepth] + "]");
+    }
+    return(depthString)
+}
+
 function parserFunction(lines){
+    var pythonRegexDict = {
+        "class": "class .+:",
+        "function": "def .+:",
+        "for": "for .+:",
+        "while": "while .+:",
+        "if": "if .+:",
+        "else if": "elif .+:",
+        "else": "else:",
+        "comment": "#"
+      };
+
     var outputJson = {
         "type": "program",
         "name": fileName,
         "body": []
     };
 
+    var depthStack = [0];
+    var previousDepth = -1;
+    var depthString;
     for (var line = 0; line < lines.length; line++) {
         // TODO: parse line
-        var depth = lines[line].search(/\S|$/) % 4;
-        console.log(depth);
-        console.log(lines[line]);
+        var currentDepth = (lines[line].search(/\S|$/)/4) >> 0;
+
+        // if(currentDepth < previousDepth){
+        //     depthStack.pop();
+        // }
+    
+
+        console.log(currentDepth);
+        console.log(depthStack);
+        console.log(depthString);
+
+        // if(currentDepth == depthStack.length-1){
+        //     depthStack.push(0);
+        // }
+        if(currentDepth < previousDepth){
+            depthStack.pop();
+            depthStack[depthStack.length-1]++;
+        }
+
+        depthString = depthStringGenerator(depthStack);
+
+        depthStack.push(0);
+
         if (lines[line].match(pythonRegexDict["class"])) {
             // define a class
-            console.log("class");
+            eval(depthString+"  = {'type': 'class', 'body':[]}");
         }
         else if (lines[line].match(pythonRegexDict["function"])) {
             // define a function
-            console.log("function");
+            eval(depthString+"  = {'type': 'function', 'body':[]}");
         }
         else if (lines[line].match(pythonRegexDict["for"])) {
             // for loop
-            console.log("for");
+            eval(depthString+"  = {'type': 'for', 'iteration': '???', 'body':[]}");
         }
         else if (lines[line].match(pythonRegexDict["while"])) {
             // while loop
-            console.log("while");
+            eval(depthString+"  = {'type': 'while', 'condtion': '???', 'body':[]}");
         }
         else if (lines[line].match(pythonRegexDict["else"])) {
             // else statement
-            console.log("else");
+            eval(depthString+"  = {'type': 'else', 'body':[]}");
         }
         else if (lines[line].match(pythonRegexDict["else if"])) {
             // else if statement
-            console.log("else if");
+            eval(depthString+"  = {'type': 'else if', 'condition': '???', 'body':[]}");
         }
         else if (lines[line].match(pythonRegexDict["if"])) {
             // if statement
-            console.log("if");
+            eval(depthString+"  = {'type': 'if', 'condition': '???', 'body':[]}");
+        }
+        else if (lines[line].match(pythonRegexDict["comment"])) {
+            // comment
+            depthStack.pop();
+            depthStack[depthStack.length-1]++;
+            eval(depthString+"  = lines[line]");
         }
         else {
             // non foldable line
-            console.log("Non-foldable");
+            depthStack.pop();
+            depthStack[depthStack.length-1]++;
+            eval(depthString+"  = lines[line]");
         }
-
+        previousDepth = currentDepth;
     }
+    console.log(outputJson);
 }
