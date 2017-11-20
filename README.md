@@ -16,7 +16,7 @@ Coming Soon
 
 **Files to edit**
 * [index.html](index.html)
-* [script.js](.scripts/script.js)
+* [script.js](scripts/script.js)
 * Your drawing algorithm file
 
 ### Coming Soon
