@@ -6,7 +6,7 @@
 ### Hunter Renard
 * Coming soon
 
-### Ryan Harris & Tyler Moore
+**Ryan Harris & Tyler Moore**
 * Comedic relief
 
 ## How To contribute
