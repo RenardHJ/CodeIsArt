@@ -6,8 +6,8 @@
 * Make sure all branches are up to date before conducting the pull request.
 * Send the pull request from the edited branch or fork to the master branch.
 
-### Visit [here](https://help.github.com/articles/merging-a-pull-request/) to see how to do a pull request via github
-### Visit [here](https://yangsu.github.io/pull-request-tutorial/) For a more indepth tutorial
+**Visit [here](https://help.github.com/articles/merging-a-pull-request/) to see how to do a pull request via github**
+**Visit [here](https://yangsu.github.io/pull-request-tutorial/) For a more indepth tutorial**
 
 ## Standards
 * Do not use vulgar or disrespecful language.
