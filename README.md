@@ -73,4 +73,4 @@ Waffle.io is an automated project management board powered by GitHub issues & pu
 
 This project is licensed under the MIT License. See the [LICENSE.md](LICENSE.md) file for details.
 
-**If you use any of this code please Acknowledge us in some way**
+**Please acknowledge us in some way if you use any of this code.**
