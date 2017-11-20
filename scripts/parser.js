@@ -10,7 +10,7 @@ function parserFunction(lines){
     var pythonRegexDict = {
         "class":        "class .+:",
         "function":     "def .+:",
-        "for":          "^\s*for .+:",
+        "for":          "^for .+:",
         "while":        "while .+:",
         "if":           "if .+:",
         "else if":      "elif .+:",
