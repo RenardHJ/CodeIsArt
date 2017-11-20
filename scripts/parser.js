@@ -50,9 +50,10 @@ function parserFunction(lines){
             eval(depthString+"  = {'type': 'class', 'body':[]}");
             }
             catch(e){
-                throw(e)
                 console.log(line);
                 console.log(lines[line]);
+                throw(e);
+
             }
         }
         else if (lines[line].match(pythonRegexDict["function"])) {
@@ -62,9 +63,9 @@ function parserFunction(lines){
             eval(depthString+"  = {'type': 'function', 'body':[]}");
             }
             catch(e){
-                throw(e)
                 console.log(line);
                 console.log(lines[line]);
+                throw(e);           
             }
         }
         else if (lines[line].match(pythonRegexDict["for"])) {
@@ -75,9 +76,9 @@ function parserFunction(lines){
             eval(depthString+"  = {'type': 'for', 'iteration': conditional, 'body':[]}");
             }
             catch(e){
-                throw(e)
                 console.log(line);
                 console.log(lines[line]);
+                throw(e);
             }
         }
         else if (lines[line].match(pythonRegexDict["while"])) {
@@ -88,9 +89,9 @@ function parserFunction(lines){
             eval(depthString+"  = {'type': 'while', 'condition': conditional, 'body':[]}");
             }
             catch(e){
-                throw(e)
                 console.log(line);
                 console.log(lines[line]);
+                throw(e);
             }
         }
         else if (lines[line].match(pythonRegexDict["else"])) {
@@ -100,9 +101,9 @@ function parserFunction(lines){
             eval(depthString+"  = {'type': 'else', 'body':[]}");
             }
             catch(e){
-                throw(e)
                 console.log(line);
                 console.log(lines[line]);
+                throw(e);
             }
         }
         else if (lines[line].match(pythonRegexDict["else if"])) {
@@ -126,9 +127,9 @@ function parserFunction(lines){
             eval(depthString+"  = {'type': 'if', 'condition': conditional, 'body':[]}");
             }
             catch(e){
-                throw(e)
                 console.log(line);
                 console.log(lines[line]);
+                throw(e);
             }
         }
         else if (lines[line].match(pythonRegexDict["try"])) {
@@ -139,9 +140,9 @@ function parserFunction(lines){
                 eval(depthString+"  = {'type': 'try', 'body':[]}");
             }
             catch(e){
-                throw(e)
                 console.log(line);
                 console.log(lines[line]);
+                throw(e);
             }
         }
         else if (lines[line].match(pythonRegexDict["except"])) {
@@ -152,9 +153,9 @@ function parserFunction(lines){
                 eval(depthString+"  = {'type': 'except', 'condition': conditional, 'body':[]}");
             }
             catch(e){
-                throw(e)
                 console.log(line);
                 console.log(lines[line]);
+                throw(e);
             }
         }
         else if (lines[line].match(pythonRegexDict["comment"])) {
@@ -167,9 +168,9 @@ function parserFunction(lines){
             eval(depthString+"  = lines[line]");
             }
             catch(e){
-                throw(e)
                 console.log(line);
                 console.log(lines[line]);
+                throw(e);
             }
         }
         else {
@@ -182,9 +183,9 @@ function parserFunction(lines){
             eval(depthString+"  = lines[line]");
             }
             catch(e){
-                throw(e)
                 console.log(line);
                 console.log(lines[line]);
+                throw(e);
             }
         }
         previousDepth = currentDepth;
