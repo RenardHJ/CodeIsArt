@@ -83,13 +83,9 @@
           <h2>Step 3. Create</h2>
     </div>
     -->
-      <button class="btn btn-primary createPic" style="margin: 16px;">
-        <i class="fa fa-picture-o" aria-hidden="true"></i> Create Image
-      </button>
-      <button class="btn btn-secondary clearCanvas" style="margin: 16px;">
-        Clear Canvas
-      </button>
-
+      <div class="btn-group" style="margin: 16px;">
+          <button type="button" class="btn btn-primary createPic"><i class="fa fa-picture-o" aria-hidden="true"></i> Create Image</button>
+            </div>
       <br />
 
       <div class="row">
@@ -97,9 +93,13 @@
           <canvas id="drawingCanvas" class="canvas_canvas"></canvas>
         </div>
       </div>
-      <a id="downloadPic" class="btn btn-primary downloadPic" style="margin: 16px; margin-bottom: 0;">
-        <i class="fa fa-download" aria-hidden="true"></i> Download Image
-      </a>
+      <div class="btn-group" style="margin: 16px;">
+        <a id="downloadPic" class="btn btn-primary downloadPic">
+            <i class="fa fa-download" aria-hidden="true"></i> Download Image
+        </a>
+                <button type="button" class="btn btn-primary clearCanvas">Clear Canvas</button>
+            </div>
+      <br />
     </div>
     <br />
 
