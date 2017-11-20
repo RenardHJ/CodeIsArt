@@ -1,6 +1,6 @@
 # Code Is Art
 
-**Website: Coming Soon**
+**[Temporary Website](http://cs.umw.edu/~hrenard/pp/)**
 
 Made for the 2017 UMW Hackathon
 
