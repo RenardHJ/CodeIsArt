@@ -6,7 +6,7 @@ Made for the 2017 UMW Hackathon
 
 The purpose of this project is to create a usable web application that allows for python code to be visually represented on a canvas.
 
-**For information not found in this document, please check out the [Documentation Folder]().**
+**For information not found in this document, please check out the [Coming Soon]().**
 
 ## How It Works
 
