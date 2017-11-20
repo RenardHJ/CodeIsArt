@@ -97,7 +97,13 @@ function parserFunction(lines){
             depthStack.pop();
             depthStack[depthStack.length-1]++;
             lines[line] = lines[line].trim();
+            try
+            {
             eval(depthString+"  = lines[line]");
+            }
+            catch{
+                console.log(lines[line]);
+            }
         }
         previousDepth = currentDepth;
     }
