@@ -16,7 +16,7 @@ $(document).ready(function()
 // check if a correct file type is selected
 $("#fileinput").change(function()
 {
-  if (this.value.substr(this.value.length - 3) != ".py" && this.value.substr(this.value.length - 5) != ".json") {
+  if (this.value.substr(this.value.length - 3) != ".py" && this.value.substr(this.value.length - 4) != ".ppc") {
     isValid = false;
     alert("Not a .py file!");
   } else {
@@ -64,7 +64,7 @@ $(".nav a").on("click", function()
 // If create image button is clicked
 $(".createPic").on("click", function()
 {
-  if (!isValid) alert("No .py or .json file!");
+  if (!isValid) alert("No .py or .ppc file!");
   else {
     switch (drawMethod) {
       case "drawMethod1":
