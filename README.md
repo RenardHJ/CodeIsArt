@@ -1,4 +1,4 @@
-# Code Is Art
+# Python Portraits
 
 **[Temporary Website](http://cs.umw.edu/~hrenard/pp/)**
 
@@ -14,7 +14,12 @@ Coming Soon
 
 ## How to add a drawing algorithm
 
-Coming Soon
+**Files to edit**
+* [index.html](index.html)
+* [script.js](.scripts/script.js)
+* Your drawing algorithm file
+
+### Coming Soon
 
 ## Main ingredients
 
