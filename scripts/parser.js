@@ -16,7 +16,7 @@ function parserFunction(lines){
         "else if": "elif .+:",
         "else": "else:",
         "try" : "try:",
-        "except" : "except .+:",
+        "except" : "except .*:",
         "comment": "#"
       };
 
