@@ -19,7 +19,7 @@ Section Coming Soon
 * [script.js](scripts/script.js)
 * Your drawing algorithm file
 
-### We will Have an in-depth guide to creating a new drawing algorithm once we clean up and optimize the code a little. Hold Tight!
+### There will be an in-depth guide to creating a new drawing algorithm once we clean up and optimize the code a little. Hold Tight!
 
 ## Main ingredients
 
