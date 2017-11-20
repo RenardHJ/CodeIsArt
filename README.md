@@ -36,6 +36,7 @@ $ yarn
 Add packages using "yarn add".
 ```
 $ yarn add <PACKAGE NAME>
+$ yarn add bootstrap
 ```
 
 ## Contributing
