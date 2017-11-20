@@ -6,11 +6,11 @@ Made for the 2017 UMW Hackathon
 
 The purpose of this project is to create a usable web application that allows for python code to be visually represented on a canvas.
 
-**For information not found in this document, please check out the [Coming Soon]().**
+**We will be adding a documents folder soon for information not found in this document.**
 
 ## How it works
 
-Coming Soon
+Section Coming Soon
 
 ## How to add a drawing algorithm
 
@@ -19,7 +19,7 @@ Coming Soon
 * [script.js](scripts/script.js)
 * Your drawing algorithm file
 
-### Coming Soon
+### There will be an in-depth guide to creating a new drawing algorithm once we clean up and optimize the code a little. Hold Tight!
 
 ## Main ingredients
 
@@ -72,7 +72,7 @@ Read [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to contribute code to
 
 Waffle.io is an automated project management board powered by GitHub issues & pull requests.
 
-[![Waffle.io - Columns and their card count](https://badge.waffle.io/RenardHJ/CodeIsArt.svg?columns=all)](https://waffle.io/RenardHJ/CodeIsArt)
+[![Waffle.io - Columns and their card count](https://badge.waffle.io/RenardHJ/Python_Portraits.svg?columns=all)](https://waffle.io/RenardHJ/CodeIsArt)
 
 ## License
 
