@@ -48,6 +48,7 @@ function parserFunction(lines){
             try
             {
             eval(depthString+"  = {'type': 'class', 'body':[]}");
+            }
             catch(e){
                 throw(e)
                 console.log(line);
@@ -59,6 +60,7 @@ function parserFunction(lines){
             try
             {
             eval(depthString+"  = {'type': 'function', 'body':[]}");
+            }
             catch(e){
                 throw(e)
                 console.log(line);
@@ -71,6 +73,7 @@ function parserFunction(lines){
             try
             {
             eval(depthString+"  = {'type': 'for', 'iteration': conditional, 'body':[]}");
+            }
             catch(e){
                 throw(e)
                 console.log(line);
@@ -83,6 +86,7 @@ function parserFunction(lines){
             try
             {
             eval(depthString+"  = {'type': 'while', 'condition': conditional, 'body':[]}");
+            }
             catch(e){
                 throw(e)
                 console.log(line);
@@ -94,6 +98,7 @@ function parserFunction(lines){
             try
             {
             eval(depthString+"  = {'type': 'else', 'body':[]}");
+            }
             catch(e){
                 throw(e)
                 console.log(line);
@@ -106,6 +111,7 @@ function parserFunction(lines){
             try
             {
             eval(depthString+"  = {'type': 'else if', 'condition': conditional, 'body':[]}");
+            }
             catch(e){
                 throw(e)
                 console.log(line);
@@ -118,6 +124,7 @@ function parserFunction(lines){
             try
             {
             eval(depthString+"  = {'type': 'if', 'condition': conditional, 'body':[]}");
+            }
             catch(e){
                 throw(e)
                 console.log(line);
@@ -130,6 +137,7 @@ function parserFunction(lines){
             try
             {
                 eval(depthString+"  = {'type': 'try', 'body':[]}");
+            }
             catch(e){
                 throw(e)
                 console.log(line);
@@ -141,7 +149,8 @@ function parserFunction(lines){
             conditional = lines[line].substring(lines[line].lastIndexOf("except ")+7,lines[line].lastIndexOf(":")); 
             try
             {
-                eval(depthString+"  = {'type': 'except', 'condition': conditional, 'body':[]}");            }
+                eval(depthString+"  = {'type': 'except', 'condition': conditional, 'body':[]}");
+            }
             catch(e){
                 throw(e)
                 console.log(line);
