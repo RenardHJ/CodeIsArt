@@ -17,7 +17,7 @@ Coming Soon
 * [Yarn](https://yarnpkg.com) - Package manager.
 * [jQuery](https://jquery.com/) - JavaScript library.
 * [Bootstrap](https://getbootstrap.com/) - Toolkit for developing with HTML, CSS, and JS.
-* [Bootstrap-select](https://silviomoreto.github.io/bootstrap-select/) - Toolkit for developing with HTML, CSS, and JS.
+* [Bootstrap-select](https://silviomoreto.github.io/bootstrap-select/) - jQuery plugin that utilizes Bootstrap's dropdown.js to style and bring additional functionality to standard select elements.
 * [Font-Awesome](http://fontawesome.io/) - Scalable vector icons.
 
 ### How to use Yarn
