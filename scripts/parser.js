@@ -101,7 +101,7 @@ function parserFunction(lines){
             {
             eval(depthString+"  = lines[line]");
             }
-            catch{
+            catch(e){
                 console.log(lines[line]);
             }
         }
