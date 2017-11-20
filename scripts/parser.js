@@ -15,6 +15,8 @@ function parserFunction(lines){
         "if": "if .+:",
         "else if": "elif .+:",
         "else": "else:",
+        "try" : "try:",
+        "except" : "except .+:",
         "comment": "#"
       };
 
@@ -71,6 +73,16 @@ function parserFunction(lines){
         else if (lines[line].match(pythonRegexDict["if"])) {
             // if statement
             conditional = lines[line].substring(lines[line].lastIndexOf("if ")+3,lines[line].lastIndexOf(":"));
+            eval(depthString+"  = {'type': 'if', 'condition': conditional, 'body':[]}");
+        }
+        else if (lines[line].match(pythonRegexDict["try"])) {
+            // if statement
+            conditional = lines[line].substring(lines[line].lastIndexOf("try ")+5,lines[line].lastIndexOf(":"));
+            eval(depthString+"  = {'type': 'if', 'condition': conditional, 'body':[]}");
+        }
+        else if (lines[line].match(pythonRegexDict["except"])) {
+            // if statement
+            conditional = lines[line].substring(lines[line].lastIndexOf("except ")+7,lines[line].lastIndexOf(":"));
             eval(depthString+"  = {'type': 'if', 'condition': conditional, 'body':[]}");
         }
         else if (lines[line].match(pythonRegexDict["comment"])) {
