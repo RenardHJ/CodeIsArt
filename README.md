@@ -43,11 +43,13 @@ Read [CONTRIBUTORS.md](CONTRIBUTORS.md) for details on what each member contribu
 Read [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to contribute code to the repository. 
 
 
-## Task Board (Coming Soon)
+## Task Board
 
 ### Waffle.io
 
 Waffle.io is an automated project management board powered by GitHub issues & pull requests.
+
+[![Waffle.io - Columns and their card count](https://badge.waffle.io/RenardHJ/CodeIsArt.svg?columns=all)](https://waffle.io/RenardHJ/CodeIsArt)
 
 ## License
 
