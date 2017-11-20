@@ -22,13 +22,20 @@ Coming Soon
 
 ### How to use Yarn
 
+**Yarn should not be necessary to install dependancies since the node_modules folder is on github.**
+
 Please see the [Yarn webpage](https://yarnpkg.com/) to get it installed on your local machine as well as seeing as examples of how to use Yarn.
 
 **Make sure that [node.js](https://nodejs.org/) is installed before installing Yarn.**
 
-Once Yarn is installed, run yarn install in order to get all package components.
+Once Yarn is installed, run "yarn" in order to get all package components.
 ```
-$ yarn install
+$ yarn
+```
+
+Add packages using "yarn add".
+```
+$ yarn add <PACKAGE NAME>
 ```
 
 ## Contributing
