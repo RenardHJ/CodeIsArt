@@ -6,11 +6,11 @@ Made for the 2017 UMW Hackathon
 
 The purpose of this project is to create a usable web application that allows for python code to be visually represented on a canvas.
 
-**For information not found in this document, please check out the [Coming Soon]().**
+**We will be adding a documents folder soon for information not found in this document.**
 
 ## How it works
 
-Coming Soon
+Section Coming Soon
 
 ## How to add a drawing algorithm
 
@@ -19,7 +19,7 @@ Coming Soon
 * [script.js](scripts/script.js)
 * Your drawing algorithm file
 
-### Coming Soon
+### We will Have an in-depth guide to creating a new drawing algorithm once we clean up and optimize the code a little. Hold Tight!
 
 ## Main ingredients
 
