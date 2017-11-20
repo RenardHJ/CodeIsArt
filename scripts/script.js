@@ -51,12 +51,15 @@ $("#fileinput").change(function()
 });
 
 // navigate the tab
-$(".nav a").on("click", function()
-{
-  $(".nav .active").removeClass("active");
-  $(this).parent().addClass("active");
+$(".nav a").on("click", function(){
 
-  drawMethod = $(this).parent().attr('id');
+    if(!$(this).parent().hasClass("disabled"))
+    {
+        $(".nav .active").removeClass("active");
+        $(this).parent().addClass("active");
+        
+        drawMethod = $(this).parent().attr('id');
+    }
 
   return false;
 });
