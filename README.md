@@ -43,6 +43,12 @@ $ yarn add <PACKAGE NAME>
 $ yarn add bootstrap
 ```
 
+Remove packages using "yarn remove".
+```
+$ yarn remove <PACKAGE NAME>
+$ yarn remove bootstrap
+```
+
 ## Contributing
 
 ### Project members
