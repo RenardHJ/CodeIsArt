@@ -7,6 +7,7 @@
 * Send the pull request from the edited branch or fork to the master branch.
 
 **Visit [here](https://help.github.com/articles/merging-a-pull-request/) to see how to do a pull request via github**
+
 **Visit [here](https://yangsu.github.io/pull-request-tutorial/) For a more indepth tutorial**
 
 ## Standards
