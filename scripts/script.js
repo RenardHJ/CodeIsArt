@@ -68,11 +68,6 @@ $(".createPic").on("click", function()
     switch (drawMethod) {
       case "drawMethod1":
         imageDownloadable = false;
-        temp1();
-        imageDownloadable = true;
-        break;
-      case "drawMethod2":
-        imageDownloadable = false;
         temp2();
         imageDownloadable = true;
         break;
