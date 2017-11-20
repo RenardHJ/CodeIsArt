@@ -8,16 +8,16 @@ function depthStringGenerator(depthStack){
 
 function parserFunction(lines){
     var pythonRegexDict = {
-        "class": "\s+class .+:",
-        "function": "\s+def .+:",
-        "for": "\s+for .+:",
-        "while": "\s+while .+:",
-        "if": "\s+if .+:",
-        "else if": "\s+elif .+:",
-        "else": "\s+else:",
-        "try" : "\s+try:",
-        "except" : "\s+except .*:",
-        "comment": "\s+#"
+        "class": "^\s*class .+:",
+        "function": "^\s*def .+:",
+        "for": "^\s*for .+:",
+        "while": "^\s*while .+:",
+        "if": "^\s*if .+:",
+        "else if": "^\s*elif .+:",
+        "else": "^\s*else:",
+        "try" : "^\s*try:",
+        "except" : "^\s*except .*:",
+        "comment": "^\s*#"
       };
 
     var outputJson = {
