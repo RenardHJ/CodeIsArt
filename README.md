@@ -8,11 +8,15 @@ The purpose of this project is to create a usable web application that allows fo
 
 **For information not found in this document, please check out the [Coming Soon]().**
 
-## How It Works
+## How it works
 
 Coming Soon
 
-## Built With
+## How to add a drawing algorithm
+
+Coming Soon
+
+## Main ingredients
 
 * [Yarn](https://yarnpkg.com) - Package manager.
 * [jQuery](https://jquery.com/) - JavaScript library.
@@ -41,7 +45,7 @@ $ yarn add bootstrap
 
 ## Contributing
 
-### Project Members
+### Project members
 
 * [**Aaron Dyke**](https://github.com/Adyke95)
 * [**Hunter Renard**](https://github.com/RenardHJ)
@@ -51,7 +55,7 @@ Read [CONTRIBUTORS.md](CONTRIBUTORS.md) for details on what each member contribu
 Read [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to contribute code to the repository. 
 
 
-## Task Board
+## Task board
 
 ### Waffle.io
 
