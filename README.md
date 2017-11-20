@@ -1,5 +1,7 @@
 # Code Is Art
+
 **Website: Coming Soon**
+
 Made for the 2017 UMW Hackathon
 
 The purpose of this project is to create a usable web application that allows for python code to be visually represented on an HTML 5 canvas.
