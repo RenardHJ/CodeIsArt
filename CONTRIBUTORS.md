@@ -1,8 +1,13 @@
 # Contributors
 
 ### Aaron Dyke
+* Coming soon
 
 ### Hunter Renard
+* Coming soon
+
+### Ryan Harris & Tyler Moore
+* Comedic relief
 
 ## How To contribute
 
