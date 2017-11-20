@@ -72,7 +72,7 @@ Read [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to contribute code to
 
 Waffle.io is an automated project management board powered by GitHub issues & pull requests.
 
-[![Waffle.io - Columns and their card count](https://badge.waffle.io/RenardHJ/CodeIsArt.svg?columns=all)](https://waffle.io/RenardHJ/CodeIsArt)
+[![Waffle.io - Columns and their card count](https://badge.waffle.io/RenardHJ/Python_Portraits.svg?columns=all)](https://waffle.io/RenardHJ/CodeIsArt)
 
 ## License
 
