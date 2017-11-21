@@ -13,6 +13,7 @@ function parserFunction(lines)
     var pythonRegexDict = {
         "class":        "class .+:",
         "function":     "def .+:",
+        "function2":     "def .+,",
         "for":          "for .+:",
         "while":        "while .+:",
         "if":           "if .+:",
@@ -80,7 +81,7 @@ function parserFunction(lines)
 
             }
         }
-        else if(lines[line].match(pythonRegexDict["function"]))
+        else if(lines[line].match(pythonRegexDict["function"]) || lines[line].match(pythonRegexDict["function2"]))
         {
             // define a function
             try
