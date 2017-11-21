@@ -38,15 +38,14 @@ function parserFunction(lines)
     for (line in lines)
     {
         if(lines[line] == "" || /^\s*$/.test(lines[line])) continue;
-
         
         var currentDepth = (lines[line].search(/\S|$/)/4) >> 0;
 
-        if(currentDepth < previousDepth)
-        {
+       if(currentDepth < previousDepth)
+       {
             depthStack.pop();
             depthStack[depthStack.length-1]++;
-        }
+       }
         
         console.log(depthStack);
 
