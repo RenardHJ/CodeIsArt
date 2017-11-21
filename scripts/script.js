@@ -29,6 +29,7 @@ $("#fileinput").change(function()
       var reader = new FileReader();
       reader.onload = function (progressEvent) {
         var lines = this.result.split('\n');
+        lines = clean(lines);
         json = parserFunction(lines);
         isValid = true;
       }
