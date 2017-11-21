@@ -28,6 +28,7 @@ Section Coming Soon
 * [Bootstrap](https://getbootstrap.com/) - Toolkit for developing with HTML, CSS, and JS.
 * [Bootstrap-select](https://silviomoreto.github.io/bootstrap-select/) - jQuery plugin that utilizes Bootstrap's dropdown.js to style and bring additional functionality to standard select elements.
 * [Font-Awesome](http://fontawesome.io/) - Scalable vector icons.
+* [p5.js](https://p5js.org/) - a library and set of tools that make it easy to use the JavaScript programming language for creative coding.
 
 ### How to use Yarn
 
