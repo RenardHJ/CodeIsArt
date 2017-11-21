@@ -56,7 +56,6 @@ function parserFunction(lines)
         else if(currentDepth > previousDepth)
         {
           depthStack.push(0);
-          previousDepth = currentDepth;
         }
         else if(currentDepth == previousDepth)
         {
