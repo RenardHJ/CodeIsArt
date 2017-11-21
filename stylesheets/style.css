@@ -5,11 +5,13 @@ body
     background: white;
     margin: 0;
 }
+
 h1, h2, h3
 {
     font-family: 'Open Sans', Helvetica, Arial, sans-serif;
     font-weight: 800;
 }
+
 .navbar-inverse a.navbar-brand
 {
     font-family: 'Open Sans', Helvetica, Arial, sans-serif;
@@ -18,10 +20,12 @@ h1, h2, h3
     font-size:200%;
     border:none;
 }
+
 #drawingCanvas
 {
     border: 1px solid #dddddd;
 }
+
 .navbar.navbar-inverse
 {
     background-color: #99CCFF;
@@ -29,11 +33,14 @@ h1, h2, h3
     -webkit-box-shadow: none;
     box-shadow: none;
 }
+
 p
 {
     font-size: 12pt;
 }
-footer {
+
+footer
+{
     margin-bottom: 200px;
     text-align: left;
     font-style: italic;
