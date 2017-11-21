@@ -1,8 +1,12 @@
+var canvas;
+var canvasHeight;
+var canvasWidth;
+
 function setup() {
-  var canvas = createCanvas(100, 100);
- 
+  canvas = createCanvas(600, 600);
+
   // Move the canvas so it's inside our <div id="sketch-holder">.
   canvas.parent('canvas_container');
-
-  background(255, 0, 200);
+  canvasHeight= height;
+  canvasWidth = width;
 }

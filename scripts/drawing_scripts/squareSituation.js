@@ -4,111 +4,70 @@ function squareSituation()
 }
 
 function depthFirst(obj) {
-  let canvas = document.getElementById("drawingCanvas");
-  let ctx = canvas.getContext("2d");
-  jQuery.each(obj.body, function (i, val) {
-    if (val.hasOwnProperty('body')) {
-      var x = Math.random() * (canvas.width - 100);
-      var y = Math.random() * (canvas.height - 100);
+  jQuery.each(obj.body, function (i, val)
+  {
+    var w;
+    var h;
+    var color;
+    if (val.hasOwnProperty('body'))
+    {
       switch (val.type) {
         case "class":
-          var width = 100, height = 100;
-          ctx.beginPath();
-          ctx.rect(x, y, width, height);
-          ctx.fillStyle = 'black';
-          ctx.fill();
-          ctx.lineWidth = 1;
-          ctx.strokeStyle = 'black';
-          ctx.stroke();
+          w = 100;
+          h = 100;
+          color = "black"
           break;
         case "function":
-          var width = 75, height = 75;
-          ctx.beginPath();
-          ctx.rect(x, y, width, height);
-          ctx.fillStyle = 'gray';
-          ctx.fill();
-          ctx.lineWidth = 1;
-          ctx.strokeStyle = 'black';
-          ctx.stroke();
+          w = 75;
+          h = 75;
+          color = "gray";
           break;
         case "for":
-          var width = 50, height = 75;
-          ctx.beginPath();
-          ctx.rect(x, y, width, height);
-          ctx.fillStyle = 'pink';
-          ctx.fill();
-          ctx.lineWidth = 1;
-          ctx.strokeStyle = 'black';
-          ctx.stroke();
+          w = 50;
+          h = 75;
+          color = "pink";
           break;
         case "while":
-          var width = 75, height = 50;
-          ctx.beginPath();
-          ctx.rect(x, y, width, height);
-          ctx.fillStyle = 'red';
-          ctx.fill();
-          ctx.lineWidth = 1;
-          ctx.strokeStyle = 'black';
-          ctx.stroke();
+          w = 75;
+          h = 50;
+          color = "red";
           break;
         case "if":
-          var width = 25, height = 40;
-          ctx.beginPath();
-          ctx.rect(x, y, width, height);
-          ctx.fillStyle = 'purple';
-          ctx.fill();
-          ctx.lineWidth = 1;
-          ctx.strokeStyle = 'black';
-          ctx.stroke();
+          w = 25;
+          h = 40;
+          color = "purple";
           break;
         case "else if":
-          var width = 40, height = 40;
-          ctx.beginPath();
-          ctx.rect(x, y, width, height);
-          ctx.fillStyle = 'blue';
-          ctx.fill();
-          ctx.lineWidth = 1;
-          ctx.strokeStyle = 'black';
-          ctx.stroke();
+          w = 40;
+          h = 40;
+          color = "blue";
           break;
         case "else":
-          var width = 40, height = 25;
-          ctx.beginPath();
-          ctx.rect(x, y, width, height);
-          ctx.fillStyle = 'cyan';
-          ctx.fill();
-          ctx.lineWidth = 1;
-          ctx.strokeStyle = 'black';
-          ctx.stroke();
+          w = 40,
+          h = 25;
+          color = "cyan";
           break;
       }
       depthFirst(val);
     }
-    else {
-      var x = Math.random() * (canvas.width - 10);
-      var y = Math.random() * (canvas.height - 10);
+    else
+    {
       switch(val){
         case "comment":
-        var width = 10, height = 10;
-        ctx.beginPath();
-        ctx.rect(x, y, width, height);
-        ctx.fillStyle = 'green';
-        ctx.fill();
-        ctx.lineWidth = 1;
-        ctx.strokeStyle = 'black';
-        ctx.stroke();
+        w = 10;
+        h = 10;
+        color = "green";
         break;
       default:
-        var width = 10, height = 10;
-        ctx.beginPath();
-        ctx.rect(x, y, width, height);
-        ctx.fillStyle = 'gainsboro';
-        ctx.fill();
-        ctx.lineWidth = 1;
-        ctx.strokeStyle = 'black';
-        ctx.stroke();
+        w = 10;
+        h = 10;
+        color="gainsboro";
         break;
       }
     }
+    var x = Math.random() * (canvasWidth - w);
+    var y = Math.random() * (canvasHeight - h);
+    fill(color);
+    rect(x, y, w, h);
   });
 }
