@@ -29,14 +29,16 @@ function parserFunction(lines)
 
     var depthStack = [0], previousDepth = -1, depthString, conditional;
 
-    for (line in lines) {
+    for (line in lines)
+    {
         if(lines[line] == "" || /^\s*$/.test(lines[line])) continue;
 
         console.log(depthStack);
         
         var currentDepth = (lines[line].search(/\S|$/)/4) >> 0;
 
-        if(currentDepth < previousDepth){
+        if(currentDepth < previousDepth)
+        {
             depthStack.pop();
             depthStack[depthStack.length-1]++;
         }
