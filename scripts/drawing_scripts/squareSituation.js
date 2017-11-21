@@ -32,7 +32,6 @@ function depthFirst(obj) {
           ctx.stroke();
           break;
         case "for":
-          console.log("We in for");
           var width = 50, height = 75;
           ctx.beginPath();
           ctx.rect(x, y, width, height);
@@ -86,7 +85,6 @@ function depthFirst(obj) {
       depthFirst(val);
     }
     else {
-      console.log(val);
       var x = Math.random() * (canvas.width - 10);
       var y = Math.random() * (canvas.height - 10);
       switch(val){

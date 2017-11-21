@@ -6,7 +6,6 @@ let json;
 
 $(document).ready(function()
 {
-  console.log("Document Loaded.");
   var canvas = document.getElementById("drawingCanvas");
 
   canvas.height = 500;
@@ -47,6 +46,5 @@ $("#fileinput").change(function()
       }
     }
   };
-  console.log(json);
   reader.readAsText(file);
 });

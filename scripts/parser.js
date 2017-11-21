@@ -43,18 +43,13 @@ function parserFunction(lines)
 
         var currentDepth = (lines[line].search(/\S|$/)/4) >> 0;
 
-        if(previousDepth == -1)
-        {
-          previousDepth = currentDepth;
-        }
-        else if(currentDepth < previousDepth)
+        if(currentDepth < previousDepth)
         {
           var diff = previousDepth - currentDepth;
           for(var i = 0; i < diff; i++) depthStack.pop();
           depthStack[depthStack.length-1]++;
-          console.log("crap");
         }
-        else if(currentDepth > previousDepth)
+        else if(currentDepth > previousDepth && previousDepth != -1)
         {
           depthStack.push(0);
         }
@@ -62,7 +57,6 @@ function parserFunction(lines)
         {
           depthStack[depthStack.length-1]++;
         }
-        console.log(depthStack);
         depthString = depthStringGenerator(depthStack);
         previousDepth = currentDepth;
 
@@ -224,7 +218,6 @@ function parserFunction(lines)
             }
             catch(e)
             {
-                console.log(depthString+" = " + lines[line]);
                 console.log(line);
                 console.log(lines[line]);
                 throw(e);
@@ -232,6 +225,5 @@ function parserFunction(lines)
         }
         // previousDepth = currentDepth;
     }
-    console.log(outputJson);
     return outputJson;
 }
