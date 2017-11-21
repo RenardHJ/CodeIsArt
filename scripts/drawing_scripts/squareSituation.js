@@ -65,8 +65,8 @@ function depthFirst(obj) {
         break;
       }
     }
-    var x = Math.random() * (canvasWidth - w);
-    var y = Math.random() * (canvasHeight - h);
+    var x = Math.random() * ((canvasWidth - 2) - w);
+    var y = Math.random() * ((canvasHeight - 2) - h);
     fill(color);
     rect(x, y, w, h);
   });
