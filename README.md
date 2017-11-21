@@ -1,4 +1,5 @@
 # Python Portraits
+Version: 0.2
 
 **[Temporary Website](http://cs.umw.edu/~hrenard/pp/)**
 
