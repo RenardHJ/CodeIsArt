@@ -1,12 +1,13 @@
-function depthStringGenerator(depthStack){
+function depthStringGenerator(depthStack)
+{
     var depthString = "outputJson";
-    for(var itemDepth in depthStack){
+    for(var itemDepth in depthStack)
         depthString = depthString.concat(".body[" + depthStack[itemDepth] + "]");
-    }
     return(depthString)
 }
 
-function parserFunction(lines){
+function parserFunction(lines)
+{
     var pythonRegexDict = {
         "class":        "class .+:",
         "function":     "def .+:",
@@ -26,17 +27,13 @@ function parserFunction(lines){
         "body": []
     };
 
-    var depthStack = [0];
-    var previousDepth = -1;
-    var depthString;
-    var conditional;
-    for (var line = 0; line < lines.length; line++) {
-        if(lines[line] == "" || /^\s*$/.test(lines[line]))
-        {
-            continue;
-        }
+    var depthStack = [0], previousDepth = -1, depthString, conditional;
+
+    for (line in lines) {
+        if(lines[line] == "" || /^\s*$/.test(lines[line])) continue;
+
         console.log(depthStack);
-        // TODO: parse line
+        
         var currentDepth = (lines[line].search(/\S|$/)/4) >> 0;
 
         if(currentDepth < previousDepth){
@@ -45,149 +42,170 @@ function parserFunction(lines){
         }
 
         depthString = depthStringGenerator(depthStack);
-
         depthStack.push(0);
 
-        if (lines[line].match(pythonRegexDict["class"])) {
+        if(lines[line].match(pythonRegexDict["class"]))
+        {
             // define a class
             try
             {
-            eval(depthString+"  = {'type': 'class', 'body':[]}");
+                eval(depthString+"  = {'type': 'class', 'body':[]}");
             }
-            catch(e){
+            catch(e)
+            {
                 console.log(line);
                 console.log(lines[line]);
                 throw(e);
 
             }
         }
-        else if (lines[line].match(pythonRegexDict["function"])) {
+        else if(lines[line].match(pythonRegexDict["function"]))
+        {
             // define a function
             try
             {
-            eval(depthString+"  = {'type': 'function', 'body':[]}");
+                eval(depthString+"  = {'type': 'function', 'body':[]}");
             }
-            catch(e){
+            catch(e)
+            {
                 console.log(line);
                 console.log(lines[line]);
                 throw(e);           
             }
         }
-        else if (lines[line].match(pythonRegexDict["for"])) {
+        else if(lines[line].match(pythonRegexDict["for"]))
+        {
             // for loop
             conditional = lines[line].substring(lines[line].lastIndexOf("for ")+4,lines[line].lastIndexOf(":"));
             try
             {
-            eval(depthString+"  = {'type': 'for', 'iteration': conditional, 'body':[]}");
+                eval(depthString+"  = {'type': 'for', 'iteration': conditional, 'body':[]}");
             }
-            catch(e){
+            catch(e)
+            {
                 console.log(line);
                 console.log(lines[line]);
                 throw(e);
             }
         }
-        else if (lines[line].match(pythonRegexDict["while"])) {
+        else if (lines[line].match(pythonRegexDict["while"]))
+        {
             // while loop
             conditional = lines[line].substring(lines[line].lastIndexOf("while ")+6,lines[line].lastIndexOf(":"));
             try
             {
-            eval(depthString+"  = {'type': 'while', 'condition': conditional, 'body':[]}");
+                eval(depthString+"  = {'type': 'while', 'condition': conditional, 'body':[]}");
             }
-            catch(e){
+            catch(e)
+            {
                 console.log(line);
                 console.log(lines[line]);
                 throw(e);
             }
         }
-        else if (lines[line].match(pythonRegexDict["else"])) {
+        else if (lines[line].match(pythonRegexDict["else"]))
+        {
             // else statement
             try
             {
-            eval(depthString+"  = {'type': 'else', 'body':[]}");
+                eval(depthString+"  = {'type': 'else', 'body':[]}");
             }
-            catch(e){
+            catch(e)
+            {
                 console.log(line);
                 console.log(lines[line]);
                 throw(e);
             }
         }
-        else if (lines[line].match(pythonRegexDict["else if"])) {
+        else if (lines[line].match(pythonRegexDict["else if"]))
+        {
             // else if statement
             conditional = lines[line].substring(lines[line].lastIndexOf("elif ")+5,lines[line].lastIndexOf(":"));
             try
             {
-            eval(depthString+"  = {'type': 'else if', 'condition': conditional, 'body':[]}");
+                eval(depthString+"  = {'type': 'else if', 'condition': conditional, 'body':[]}");
             }
-            catch(e){
+            catch(e)
+            {
                 throw(e)
                 console.log(line);
                 console.log(lines[line]);
             }
         }
-        else if (lines[line].match(pythonRegexDict["if"])) {
+        else if (lines[line].match(pythonRegexDict["if"]))
+        {
             // if statement
             conditional = lines[line].substring(lines[line].lastIndexOf("if ")+3,lines[line].lastIndexOf(":"));
             try
             {
-            eval(depthString+"  = {'type': 'if', 'condition': conditional, 'body':[]}");
+                eval(depthString+"  = {'type': 'if', 'condition': conditional, 'body':[]}");
             }
-            catch(e){
+            catch(e)
+            {
                 console.log(line);
                 console.log(lines[line]);
                 throw(e);
             }
         }
-        else if (lines[line].match(pythonRegexDict["try"])) {
+        else if (lines[line].match(pythonRegexDict["try"]))
+        {
             // if statement
             conditional = lines[line].substring(lines[line].lastIndexOf("try ")+5,lines[line].lastIndexOf(":"));
             try
             {
                 eval(depthString+"  = {'type': 'try', 'body':[]}");
             }
-            catch(e){
+            catch(e)
+            {
                 console.log(line);
                 console.log(lines[line]);
                 throw(e);
             }
         }
-        else if (lines[line].match(pythonRegexDict["except"])) {
+        else if (lines[line].match(pythonRegexDict["except"]))
+        {
             // if statement
             conditional = lines[line].substring(lines[line].lastIndexOf("except ")+7,lines[line].lastIndexOf(":")); 
             try
             {
                 eval(depthString+"  = {'type': 'except', 'condition': conditional, 'body':[]}");
             }
-            catch(e){
+            catch(e)
+            {
                 console.log(line);
                 console.log(lines[line]);
                 throw(e);
             }
         }
-        else if (lines[line].match(pythonRegexDict["comment"])) {
+        else if (lines[line].match(pythonRegexDict["comment"]))
+        {
             // comment
             depthStack.pop();
             depthStack[depthStack.length-1]++;
             lines[line] = lines[line].trim();
             try
             {
-            eval(depthString+"  = lines[line]");
+                eval(depthString+"  = lines[line]");
             }
-            catch(e){
+            catch(e)
+            {
                 console.log(line);
                 console.log(lines[line]);
                 throw(e);
             }
         }
-        else {
+        else
+        {
             // non foldable line
             depthStack.pop();
             depthStack[depthStack.length-1]++;
             lines[line] = lines[line].trim();
             try
             {
-            eval(depthString+"  = lines[line]");
+                eval(depthString+"  = lines[line]");
             }
-            catch(e){
+            catch(e)
+            {
                 console.log(depthString+" = " + lines[line]);
                 console.log(line);
                 console.log(lines[line]);
