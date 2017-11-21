@@ -33,3 +33,9 @@ p
 {
     font-size: 12pt;
 }
+footer {
+    margin-bottom: 200px;
+    text-align: left;
+    font-style: italic;
+    margin-top: 2em;
+}
