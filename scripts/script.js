@@ -8,7 +8,7 @@ $(document).ready(function()
 {
   console.log("Document Loaded.");
   var canvas = document.getElementById("drawingCanvas");
-  
+
   canvas.height = 500;
   canvas.width = 500;
 });
@@ -20,8 +20,7 @@ $("#fileinput").change(function()
     isValid = false;
     alert("Not a .py file!");
   } else {
-    isValid = true;
-
+    //isValid = true;
     file = this.value;
     fileName = file.split('.')[0];
     fileName = fileName.split("C:\\fakepath\\")[1];
@@ -35,6 +34,7 @@ $("#fileinput").change(function()
       reader.onload = function (progressEvent) {
         var lines = this.result.split('\n');
         json = parserFunction(lines);
+        isValid = true;
       }
     }
     else
@@ -43,6 +43,7 @@ $("#fileinput").change(function()
       reader.onload = function (progressEvent) {
         // Entire file
         json = JSON.parse(this.result);
+        isValid = true;
       }
     }
   };
@@ -57,7 +58,7 @@ $(".nav a").on("click", function(){
     {
         $(".nav .active").removeClass("active");
         $(this).parent().addClass("active");
-        
+
         drawMethod = $(this).parent().attr('id');
     }
 
@@ -84,7 +85,6 @@ $(".createPic").on("click", function()
 $(".clearCanvas").on("click", function()
 {
     var canvas = document.getElementById("drawingCanvas");
-    var context = canvas.getContext("2d"); 
+    var context = canvas.getContext("2d");
     context.clearRect(0, 0, canvas.width, canvas.height);
 });
-
