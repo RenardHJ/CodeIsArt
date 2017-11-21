@@ -1,9 +1,11 @@
 function depthStringGenerator(depthStack)
 {
     var depthString = "outputJson";
+
     for(var itemDepth in depthStack)
         depthString = depthString.concat(".body[" + depthStack[itemDepth] + "]");
-    return(depthString)
+    
+    return(depthString);
 }
 
 function parserFunction(lines)
@@ -27,13 +29,16 @@ function parserFunction(lines)
         "body": []
     };
 
-    var depthStack = [0], previousDepth = -1, depthString, conditional;
+    var depthStack = [0],
+        previousDepth = -1,
+        depthString,
+        conditional,
+        lastNF = false;
 
     for (line in lines)
     {
         if(lines[line] == "" || /^\s*$/.test(lines[line])) continue;
 
-        console.log(depthStack);
         
         var currentDepth = (lines[line].search(/\S|$/)/4) >> 0;
 
@@ -42,6 +47,8 @@ function parserFunction(lines)
             depthStack.pop();
             depthStack[depthStack.length-1]++;
         }
+        
+        console.log(depthStack);
 
         depthString = depthStringGenerator(depthStack);
         depthStack.push(0);
@@ -49,6 +56,14 @@ function parserFunction(lines)
         if(lines[line].match(pythonRegexDict["class"]))
         {
             // define a class
+            
+            if(lastNF == true)
+            {
+            depthStack.pop();
+            depthStack[depthStack.length-1]++;
+            }
+            lastNF = false;
+
             try
             {
                 eval(depthString+"  = {'type': 'class', 'body':[]}");
@@ -64,6 +79,14 @@ function parserFunction(lines)
         else if(lines[line].match(pythonRegexDict["function"]))
         {
             // define a function
+            
+            if(lastNF == true)
+            {
+            depthStack.pop();
+            depthStack[depthStack.length-1]++;
+            }
+            lastNF = false;
+
             try
             {
                 eval(depthString+"  = {'type': 'function', 'body':[]}");
@@ -78,6 +101,14 @@ function parserFunction(lines)
         else if(lines[line].match(pythonRegexDict["for"]))
         {
             // for loop
+            
+            if(lastNF == true)
+            {
+            depthStack.pop();
+            depthStack[depthStack.length-1]++;
+            }
+            lastNF = false;
+
             conditional = lines[line].substring(lines[line].lastIndexOf("for ")+4,lines[line].lastIndexOf(":"));
             try
             {
@@ -93,6 +124,14 @@ function parserFunction(lines)
         else if (lines[line].match(pythonRegexDict["while"]))
         {
             // while loop
+            
+            if(lastNF == true)
+            {
+            depthStack.pop();
+            depthStack[depthStack.length-1]++;
+            }
+            lastNF = false;
+
             conditional = lines[line].substring(lines[line].lastIndexOf("while ")+6,lines[line].lastIndexOf(":"));
             try
             {
@@ -108,6 +147,14 @@ function parserFunction(lines)
         else if (lines[line].match(pythonRegexDict["else"]))
         {
             // else statement
+            
+            if(lastNF == true)
+            {
+            depthStack.pop();
+            depthStack[depthStack.length-1]++;
+            }
+            lastNF = false;
+
             try
             {
                 eval(depthString+"  = {'type': 'else', 'body':[]}");
@@ -122,6 +169,14 @@ function parserFunction(lines)
         else if (lines[line].match(pythonRegexDict["else if"]))
         {
             // else if statement
+            
+            if(lastNF == true)
+            {
+            depthStack.pop();
+            depthStack[depthStack.length-1]++;
+            }
+            lastNF = false;
+
             conditional = lines[line].substring(lines[line].lastIndexOf("elif ")+5,lines[line].lastIndexOf(":"));
             try
             {
@@ -137,6 +192,14 @@ function parserFunction(lines)
         else if (lines[line].match(pythonRegexDict["if"]))
         {
             // if statement
+            
+            if(lastNF == true)
+            {
+            depthStack.pop();
+            depthStack[depthStack.length-1]++;
+            }
+            lastNF = false;
+
             conditional = lines[line].substring(lines[line].lastIndexOf("if ")+3,lines[line].lastIndexOf(":"));
             try
             {
@@ -152,6 +215,14 @@ function parserFunction(lines)
         else if (lines[line].match(pythonRegexDict["try"]))
         {
             // if statement
+            
+            if(lastNF == true)
+            {
+            depthStack.pop();
+            depthStack[depthStack.length-1]++;
+            }
+            lastNF = false;
+
             conditional = lines[line].substring(lines[line].lastIndexOf("try ")+5,lines[line].lastIndexOf(":"));
             try
             {
@@ -167,6 +238,14 @@ function parserFunction(lines)
         else if (lines[line].match(pythonRegexDict["except"]))
         {
             // if statement
+            
+            if(lastNF == true)
+            {
+            depthStack.pop();
+            depthStack[depthStack.length-1]++;
+            }
+            lastNF = false;
+
             conditional = lines[line].substring(lines[line].lastIndexOf("except ")+7,lines[line].lastIndexOf(":")); 
             try
             {
@@ -182,6 +261,7 @@ function parserFunction(lines)
         else if (lines[line].match(pythonRegexDict["comment"]))
         {
             // comment
+            lastNF = true;
             depthStack.pop();
             depthStack[depthStack.length-1]++;
             lines[line] = lines[line].trim();
@@ -199,6 +279,7 @@ function parserFunction(lines)
         else
         {
             // non foldable line
+            lastNF = true;
             depthStack.pop();
             depthStack[depthStack.length-1]++;
             lines[line] = lines[line].trim();
