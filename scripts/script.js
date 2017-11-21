@@ -8,8 +8,8 @@ $(document).ready(function()
 {
   var canvas = document.getElementById("drawingCanvas");
 
-  canvas.height = 500;
-  canvas.width = 500;
+  canvas.height = 600;
+  canvas.width = 600;
 });
 
 // check if a correct file type is selected
