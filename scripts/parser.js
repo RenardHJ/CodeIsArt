@@ -31,6 +31,10 @@ function parserFunction(lines){
     var depthString;
     var conditional;
     for (var line = 0; line < lines.length; line++) {
+        if(lines[line] == "")
+        {
+            continue;
+        }
         // TODO: parse line
         var currentDepth = (lines[line].search(/\S|$/)/4) >> 0;
 
