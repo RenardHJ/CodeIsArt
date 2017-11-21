@@ -21,7 +21,7 @@ function parserFunction(lines)
         "else":         "else:",
         "try" :         "try:",
         "except" :      "except .*:",
-        "comment":      "#"
+        "comment":      "#.*"
       };
 
     var outputJson = {
