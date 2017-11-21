@@ -43,7 +43,7 @@ def generate_friends_graph(associates_graph, accessibility=.5, homophily=.7,
         # before we got to 'their' iteration.)
         num_additional_edges = max(0, min_friends_per_neighbor - len(f_ids))
         logging.debug(('{} already has {} edges, and should have 3.' +
-        ----' Adding {} more.').format(vid, len(f_ids), num_additional_edges)) # Parser issue
+        #---' Adding {} more.').format(vid, len(f_ids), num_additional_edges)) # Parser issue
         for edge_num in range(num_additional_edges):
             # Need to recalculate f_ids in this inner loop since we're adding
             # edges for this vertex, drr.
@@ -53,28 +53,28 @@ def generate_friends_graph(associates_graph, accessibility=.5, homophily=.7,
                 # If we randomly decided to choose from the pool at large (or
                 #   if we've already added all associates as friends)...
                 candidate_ids = (set(range(friends_graph.vcount())) -
-                ----{ vid } - set(f_ids)) # Parser issue
+                #---{ vid } - set(f_ids)) # Parser issue
             else:
                 logging.debug('Choosing from associates...')
                 candidate_ids = set(a_ids) - { vid } - set(f_ids)
             new_friend_id = choose_friend(associates_graph, vid, candidate_ids,
-            ----homophily) # Parser issue
+            #---homophily) # Parser issue
             logging.debug('Adding edge {}.'.format((vid, new_friend_id)))
             if new_friend_id:
                 friends_graph.add_edge(vid, new_friend_id)
 
     friends_graph['name'] = 'friends_graph'
     logging.info('{} friends from {} associates ({:.1f}% increase)'.format(
-    ----len(friends_graph.es), len(associates_graph.es), # Parser issue
-    ----len(friends_graph.es) / len(associates_graph.es) * 100)) # Parser issue
+    #---len(friends_graph.es), len(associates_graph.es), # Parser issue
+    #---len(friends_graph.es) / len(associates_graph.es) * 100)) # Parser issue
     still_friends = len(set([e.tuple for e in associates_graph.es]) -
-    ----set([e.tuple for e in friends_graph.es])) # Parser issue
+    #---set([e.tuple for e in friends_graph.es])) # Parser issue
     logging.info('{}/{} ({:.1f}%) of associates are still friends.'.format(
-    ----still_friends, len(associates_graph.es), # Parser issue
-    ----still_friends / len(associates_graph.es) * 100)) # Parser issue
+    #---still_friends, len(associates_graph.es), # Parser issue
+    #---still_friends / len(associates_graph.es) * 100)) # Parser issue
     logging.info('Assortativity: associates {:.3f}, friends {:.3f}'.format(
-    ----compute_assortativity(associates_graph), # Parser issue
-    ----compute_assortativity(friends_graph))) # Parser issue
+    #---compute_assortativity(associates_graph), # Parser issue
+    #---compute_assortativity(friends_graph))) # Parser issue
 
     PLOT_AND_QUIT = False
     if PLOT_AND_QUIT:
@@ -82,9 +82,9 @@ def generate_friends_graph(associates_graph, accessibility=.5, homophily=.7,
         associates_graph.vs['label'] = list(range(associates_graph.vcount()))
         friends_graph.vs['label'] = list(range(friends_graph.vcount()))
         igraph.plot(associates_graph, layout=layout, inline=False,
-        ----target='as.png') # Parser issue
+        #---target='as.png') # Parser issue
         igraph.plot(friends_graph, layout=layout, inline=False,
-        ----target='fr.png') # Parser issue
+        #---target='fr.png') # Parser issue
         os.system('eog as.png fr.png')
         os.system('rm as.png fr.png')
         print('Plotting and quitting.')
@@ -116,8 +116,8 @@ def choose_friend(graph, vid, candidate_f_ids, homophily):
         return None
     my_color = graph.vs[vid]['color']
     weighted_ids = { v :
-    --------(homophily if graph.vs[v]['color'] == my_color else 1-homophily) # Parser issue
-    --------for v in list(candidate_f_ids) } # Parser issue
+    #-------(homophily if graph.vs[v]['color'] == my_color else 1-homophily) # Parser issue
+    #-------for v in list(candidate_f_ids) } # Parser issue
     # If all weights are 0 (or negative), then choose equally among
     # candidates (instead of throwing "Shouldn't get here" error.)
     if all([ v <= 0 for v in weighted_ids.values() ]):
@@ -130,4 +130,4 @@ def choose_friend(graph, vid, candidate_f_ids, homophily):
 def compute_assortativity(g):
     colors = list(set(g.vs['color']))  # make global - faster?
     return g.assortativity_nominal(
-    ----[ colors.index(c) for c in g.vs['color']], directed=False) # Parser issue
+    #---[ colors.index(c) for c in g.vs['color']], directed=False) # Parser issue
