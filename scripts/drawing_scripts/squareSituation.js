@@ -3,7 +3,8 @@ function squareSituation()
   depthFirst(json);
 }
 
-function depthFirst(obj) {
+function depthFirst(obj)
+{
   jQuery.each(obj.body, function (i, val)
   {
     var w;
@@ -11,7 +12,8 @@ function depthFirst(obj) {
     var color;
     if (val.hasOwnProperty('body'))
     {
-      switch (val.type) {
+      switch(val.type)
+      {
         case "class":
           w = 100;
           h = 100;
@@ -52,21 +54,24 @@ function depthFirst(obj) {
     }
     else
     {
-      switch(val){
+      switch(val)
+      {
         case "comment":
-        w = 10;
-        h = 10;
-        color = "green";
-        break;
-      default:
-        w = 10;
-        h = 10;
-        color="gainsboro";
-        break;
+          w = 10;
+          h = 10;
+          color = "green";
+          break;
+        default:
+          w = 10;
+          h = 10;
+          color = "gainsboro";
+          break;
       }
     }
+    //Have to -2 or the shapes can be drawn outside of the border
     var x = Math.random() * ((canvasWidth - 2) - w);
     var y = Math.random() * ((canvasHeight - 2) - h);
+
     fill(color);
     rect(x, y, w, h);
   });

@@ -11,17 +11,17 @@ function depthStringGenerator(depthStack)
 function parserFunction(lines)
 {
     var pythonRegexDict = {
-        "class":        "class .+:",
-        "function":     "def .+:",
-        "function2":     "def .+,",
-        "for":          "for .+:",
-        "while":        "while .+:",
-        "if":           "if .+:",
-        "else if":      "elif .+:",
-        "else":         "else:",
-        "try" :         "try:",
-        "except" :      "except .*:",
-        "comment":      "#.*"
+        "class" :        "class .+:",
+        "function" :     "def .+:",
+        "function2" :    "def .+,",
+        "for" :          "for .+:",
+        "while" :        "while .+:",
+        "if" :           "if .+:",
+        "else if" :      "elif .+:",
+        "else" :         "else:",
+        "try" :          "try:",
+        "except" :       "except .*:",
+        "comment" :      "#.*"
       };
 
     var outputJson = {
@@ -35,7 +35,7 @@ function parserFunction(lines)
         depthString,
         conditional,
         lastNF = false;
-
+        
     for (line in lines)
     {
         // Skip line if it is blank or only has white spaces
