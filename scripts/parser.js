@@ -41,6 +41,8 @@ function parserFunction(lines)
         // Skip line if it is blank or only has white spaces
         if(lines[line] == "" || /^\s*$/.test(lines[line])) continue;
 
+        console.log(parenthesesAreBalanced(lines[line]));
+
         var currentDepth = (lines[line].search(/\S|$/)/4) >> 0;
 
         if(currentDepth < previousDepth)

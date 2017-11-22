@@ -31,7 +31,7 @@ $("#fileinput").change(function()
         var lines = this.result.split("\n");
         console.log(lines);
         lines = clean(lines);
-        console.log(lines);
+        // console.log(lines);
         json = parserFunction(lines);
         isValid = true;
       }
