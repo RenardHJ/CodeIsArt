@@ -8,17 +8,15 @@ function parenthesesAreBalanced(string)
   {
     bracePosition = parentheses.indexOf(character);
 
-    if(bracePosition === -1)
-    {
+    if(bracePosition === -1) {
       continue;
     }
 
     if(bracePosition % 2 === 0)
     {
+      // push next expected brace position
       stack.push(bracePosition + 1);
-    }
-    else
-    {
+    } else {
       if(stack.pop() !== bracePosition)
       {
         return false;
@@ -38,23 +36,35 @@ function clean(lines)
   {
     var l = lines[line];
 
+    console.log(l);
+
     if(multiLine == true)
     {
+      //stay multi line
       if(l.match("/\/\s*$") || !parenthesesAreBalanced(lines[startMultiIndex]))
       {
+        console.log("Still in multiline");
+        //add to start lines
         lines[startMultiIndex] = lines[startMultiIndex].concat(" " + l.trim());
         lines[line] = "";
         multiLine = true;
       }
+      // No longer in multiline
       else
       {
+        console.log("No longer in multiline");
+        // testing if current line is multiline
         if(l.match("/\/\s*$") || !parenthesesAreBalanced(l))
         {
+          console.log("starting mulitline");
           startMultiIndex = line;
           multiLine = true;
         }
         else
         {
+        //add to previous lines
+        // lines[startMultiIndex] = lines[startMultiIndex].concat(" " + l.trim());
+        // lines[line] = "";
         lines[line] = l;
         multiLine = false;
         }
@@ -62,11 +72,14 @@ function clean(lines)
     }
     else
     {
+      //start multi line
       if(l.match("/\/\s*$") || !parenthesesAreBalanced(l))
       {
+        console.log("starting mulitline");
         startMultiIndex = line;
         multiLine = true;
       }
+      // not a multi line
       else
       {
         multiLine = false;
