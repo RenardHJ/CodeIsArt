@@ -79,6 +79,5 @@ function clean(lines)
       }
     }
   }
-  console.log(lines);
   return(lines);
 }
