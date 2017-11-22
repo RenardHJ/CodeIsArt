@@ -6,7 +6,7 @@ let json;
 
 $(document).ready(function()
 {
-  console.log("Document Loaded.");
+  
 });
 
 // check if a correct file type is selected
@@ -29,9 +29,7 @@ $("#fileinput").change(function()
       var reader = new FileReader();
       reader.onload = function (progressEvent) {
         var lines = this.result.split("\n");
-        console.log(lines);
         lines = clean(lines);
-        // console.log(lines);
         json = parserFunction(lines);
         isValid = true;
       }

@@ -12,5 +12,3 @@ while x < maxNumber:
     else:
         print(f"anum is {anum}")
     anum = anumEmotions[randint(0,len(anumEmotions)-1)]
-
-
