@@ -23,7 +23,8 @@ function parserFunction(lines)
         "with" :         "with .+:",
         "finally" :      "finally:",
         "except" :       "except.*:",
-        "comment" :      "#.*"
+        "comment" :      "/#.*",
+        "comment2" :     "^/s*/'/'/'.*/'/'/'$"
       };
 
     var outputJson = {
@@ -62,7 +63,22 @@ function parserFunction(lines)
         depthString = depthStringGenerator(depthStack);
         previousDepth = currentDepth;
 
-        if(lines[line].match(pythonRegexDict["class"]))
+        if (lines[line].match(pythonRegexDict["comment"]) || lines[line].match(pythonRegexDict["comment2"]))
+        {
+            // comment
+            lines[line] = lines[line].trim();
+            try
+            {
+                eval(depthString+"  = lines[line]");
+            }
+            catch(e)
+            {
+                console.log(line);
+                console.log(lines[line]);
+                throw(e);
+            }
+        }
+        else if(lines[line].match(pythonRegexDict["class"]))
         {
             // define a class
             try
