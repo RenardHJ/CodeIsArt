@@ -13,23 +13,36 @@ $("#fileinput").change(function()
 
     if (this.value.substr(this.value.length - 3) == ".py")
     {
-      // parser.js
-      //json = parse();
       var reader = new FileReader();
       reader.onload = function (progressEvent) {
-        var lines = this.result.split("\n");
-        lines = clean(lines);
-        json = parserFunction(lines);
-        isValid = true;
+        if(this.result == "")
+        {
+            alert("File Empty!");
+            isValid = false;
+        }
+        else
+        {
+            var lines = this.result.split("\n");
+            lines = clean(lines);
+            json = parserFunction(lines);
+            isValid = true;
+        }
       }
     }
     else
     {
       var reader = new FileReader();
       reader.onload = function (progressEvent) {
-        // Entire file
-        json = JSON.parse(this.result);
-        isValid = true;
+        if(this.result == "")
+        {
+            alert("File Empty!");
+            isValid = false;
+        }
+        else
+        {
+            json = JSON.parse(this.result);
+            isValid = true;
+        }
       }
     }
   };
