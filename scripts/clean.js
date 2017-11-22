@@ -63,8 +63,6 @@ function clean(lines)
         else
         {
         //add to previous lines
-        // lines[startMultiIndex] = lines[startMultiIndex].concat(" " + l.trim());
-        // lines[line] = "";
         lines[line] = l;
         multiLine = false;
         }
