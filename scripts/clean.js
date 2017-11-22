@@ -59,11 +59,21 @@ function clean(lines)
       else
       {
         console.log("No longer in multiline");
+        // testing if current line is multiline
+        if(l.match("/\/\s*$") || !parenthesesAreBalanced(l))
+        {
+          console.log("starting mulitline");
+          startMultiIndex = line;
+          multiLine = true;
+        }
+        else
+        {
         //add to previous lines
         // lines[startMultiIndex] = lines[startMultiIndex].concat(" " + l.trim());
         // lines[line] = "";
         lines[line] = l;
         multiLine = false;
+        }
       }
     }
     else
@@ -76,7 +86,7 @@ function clean(lines)
         startMultiIndex = line;
         multiLine = true;
       }
-      // last line in multi line
+      // not a multi line
       else
       {
         multiLine = false;
