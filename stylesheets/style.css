@@ -42,8 +42,9 @@ p
 
 footer
 {
-    margin-bottom: 200px;
+    margin-bottom: 2em;
     text-align: left;
     font-style: italic;
     margin-top: 2em;
+    color: grey;
 }
