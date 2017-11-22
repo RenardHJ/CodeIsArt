@@ -49,6 +49,26 @@ function depthFirst(obj)
           h = 25;
           color = "cyan";
           break;
+        case "with":
+          w = 40,
+          h = 25;
+          color = "orange";
+          break;
+        case "finally":
+          w = 40,
+          h = 25;
+          color = "lime";
+          break;
+        case "try":
+          w = 40,
+          h = 25;
+          color = "magenta";
+          break;
+        case "except":
+          w = 40,
+          h = 25;
+          color = "gold";
+          break;
       }
       depthFirst(val);
     }

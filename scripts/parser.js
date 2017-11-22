@@ -20,7 +20,9 @@ function parserFunction(lines)
         "else if" :      "elif .+:",
         "else" :         "else:",
         "try" :          "try:",
-        "except" :       "except .*:",
+        "with" :         "with .+:",
+        "finally" :      "finally:",
+        "except" :       "except.*:",
         "comment" :      "#.*"
       };
 
@@ -63,67 +65,194 @@ function parserFunction(lines)
         if(lines[line].match(pythonRegexDict["class"]))
         {
             // define a class
-            eval(depthString+"  = {'type': 'class', 'body':[]}");
+            try
+            {
+                eval(depthString+"  = {'type': 'class', 'body':[]}");
+            }
+            catch(e)
+            {
+                console.log(line);
+                console.log(lines[line]);
+                throw(e);
+
+            }
         }
         else if(lines[line].match(pythonRegexDict["function"]) || lines[line].match(pythonRegexDict["function2"]))
         {
             // define a function
-            eval(depthString+"  = {'type': 'function', 'body':[]}");
+            try
+            {
+                eval(depthString+"  = {'type': 'function', 'body':[]}");
+            }
+            catch(e)
+            {
+                console.log(line);
+                console.log(lines[line]);
+                throw(e);
+            }
         }
         else if(lines[line].match(pythonRegexDict["for"]))
         {
             // for loop
             conditional = lines[line].substring(lines[line].lastIndexOf("for ")+4,lines[line].lastIndexOf(":"));
-            eval(depthString+"  = {'type': 'for', 'iteration': conditional, 'body':[]}");
+            try
+            {
+                eval(depthString+"  = {'type': 'for', 'iteration': conditional, 'body':[]}");
+            }
+            catch(e)
+            {
+                console.log(line);
+                console.log(lines[line]);
+                throw(e);
+            }
         }
         else if (lines[line].match(pythonRegexDict["while"]))
         {
             // while loop
             conditional = lines[line].substring(lines[line].lastIndexOf("while ")+6,lines[line].lastIndexOf(":"));
-            eval(depthString+"  = {'type': 'while', 'condition': conditional, 'body':[]}");
+            try
+            {
+                eval(depthString+"  = {'type': 'while', 'condition': conditional, 'body':[]}");
+            }
+            catch(e)
+            {
+                console.log(line);
+                console.log(lines[line]);
+                throw(e);
+            }
         }
         else if (lines[line].match(pythonRegexDict["else"]))
         {
             // else statement
-            eval(depthString+"  = {'type': 'else', 'body':[]}");
+            try
+            {
+                eval(depthString+"  = {'type': 'else', 'body':[]}");
+            }
+            catch(e)
+            {
+                console.log(line);
+                console.log(lines[line]);
+                throw(e);
+            }
         }
         else if (lines[line].match(pythonRegexDict["else if"]))
         {
             // else if statement
             conditional = lines[line].substring(lines[line].lastIndexOf("elif ")+5,lines[line].lastIndexOf(":"));
-            eval(depthString+"  = {'type': 'else if', 'condition': conditional, 'body':[]}");
+            try
+            {
+                eval(depthString+"  = {'type': 'else if', 'condition': conditional, 'body':[]}");
+            }
+            catch(e)
+            {
+                throw(e)
+                console.log(line);
+                console.log(lines[line]);
+            }
         }
         else if (lines[line].match(pythonRegexDict["if"]))
         {
             // if statement
             conditional = lines[line].substring(lines[line].lastIndexOf("if ")+3,lines[line].lastIndexOf(":"));
-            eval(depthString+"  = {'type': 'if', 'condition': conditional, 'body':[]}");
+            try
+            {
+                eval(depthString+"  = {'type': 'if', 'condition': conditional, 'body':[]}");
+            }
+            catch(e)
+            {
+                console.log(line);
+                console.log(lines[line]);
+                throw(e);
+            }
         }
         else if (lines[line].match(pythonRegexDict["try"]))
         {
             // try statement
             conditional = lines[line].substring(lines[line].lastIndexOf("try ")+5,lines[line].lastIndexOf(":"));
-            eval(depthString+"  = {'type': 'try', 'body':[]}");
+            try
+            {
+                eval(depthString+"  = {'type': 'try', 'body':[]}");
+            }
+            catch(e)
+            {
+                console.log(line);
+                console.log(lines[line]);
+                throw(e);
+            }
         }
         else if (lines[line].match(pythonRegexDict["except"]))
         {
             // except statement
             conditional = lines[line].substring(lines[line].lastIndexOf("except ")+7,lines[line].lastIndexOf(":"));
-            eval(depthString+"  = {'type': 'except', 'condition': conditional, 'body':[]}");
+            try
+            {
+                eval(depthString+"  = {'type': 'except', 'condition': conditional, 'body':[]}");
+            }
+            catch(e)
+            {
+                console.log(line);
+                console.log(lines[line]);
+                throw(e);
+            }
+        }
+        else if (lines[line].match(pythonRegexDict["with"]))
+        {
+            // with statement
+            conditional = lines[line].substring(lines[line].lastIndexOf("with ")+5,lines[line].lastIndexOf(":"));
+            try
+            {
+                eval(depthString+"  = {'type': 'with', 'condition': conditional, 'body':[]}");
+            }
+            catch(e)
+            {
+                throw(e)
+                console.log(line);
+                console.log(lines[line]);
+            }
+        }
+        else if (lines[line].match(pythonRegexDict["finally"]))
+        {
+            // finally statement
+            try
+            {
+                eval(depthString+"  = {'type': 'finally', 'body':[]}");
+            }
+            catch(e)
+            {
+                console.log(line);
+                console.log(lines[line]);
+                throw(e);
+            }
         }
         else if (lines[line].match(pythonRegexDict["comment"]))
         {
             // comment
             lines[line] = lines[line].trim();
-            eval(depthString+"  = lines[line]");
-
+            try
+            {
+                eval(depthString+"  = lines[line]");
+            }
+            catch(e)
+            {
+                console.log(line);
+                console.log(lines[line]);
+                throw(e);
+            }
         }
         else
         {
             // non foldable line
             lines[line] = lines[line].trim();
-            eval(depthString+"  = lines[line]");
-
+            try
+            {
+                eval(depthString+"  = lines[line]");
+            }
+            catch(e)
+            {
+                console.log(line);
+                console.log(lines[line]);
+                throw(e);
+            }
         }
         // previousDepth = currentDepth;
     }
