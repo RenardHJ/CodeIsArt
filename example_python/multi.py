@@ -1,12 +1,12 @@
 
 print("hi")
-main():
+def main():
     print("TEST")
-    print("This is a" =
-    "test",
-            "2")
+    print("TEST" \
+    "test2",
+    "plz")
     for i in range(10):
         print("help")
 
-main2():
+def main2():
     print("plz")

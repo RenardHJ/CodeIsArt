@@ -8,23 +8,36 @@ function depthStringGenerator(depthStack)
     return(depthString);
 }
 
+var parser_success = true;
+
 function parserFunction(lines)
 {
+    parser_success = true;
+    function parse_error(e)
+    {
+      alert("Parsing failed! Try another file!");
+      console.log(line);
+      console.log(lines[line]);
+      parser_success = false;
+      throw(e);
+    }
+
     var pythonRegexDict = {
-        "class" :        "class .+:",
-        "function" :     "def .+:",
-        "function2" :    "def .+,",
-        "for" :          "for .+:",
-        "while" :        "while .+:",
-        "if" :           "if .+:",
-        "else if" :      "elif .+:",
-        "else" :         "else:",
-        "try" :          "try:",
-        "with" :         "with .+:",
-        "finally" :      "finally:",
-        "except" :       "except.*:",
-        "comment" :      "/#.*",
-        "comment2" :     "^/s*/'/'/'.*/'/'/'$"
+        "class" :           "class .+:",
+        "function" :        "def .+:",
+        "function2" :       "def .+,",
+        "for" :             "for .+:",
+        "while" :           "while .+:",
+        "if" :              "if .+:",
+        "else if" :         "elif .+:",
+        "else" :            "else:",
+        "try" :             "try:",
+        "with" :            "with .+:",
+        "finally" :         "finally:",
+        "except" :          "except.*:",
+        "comment" :         "/#.*",
+        "comment_multi" :   "^/s*/'/'/'.*/'/'/'$",
+        "decorator" :       "/@.*"
       };
 
     var outputJson = {
@@ -39,7 +52,7 @@ function parserFunction(lines)
         conditional,
         lastNF = false;
 
-    for (line in lines)
+    for(line in lines)
     {
         // Skip line if it is blank or only has white spaces
         if(lines[line] == "" || /^\s*$/.test(lines[line])) continue;
@@ -63,7 +76,7 @@ function parserFunction(lines)
         depthString = depthStringGenerator(depthStack);
         previousDepth = currentDepth;
 
-        if (lines[line].match(pythonRegexDict["comment"]) || lines[line].match(pythonRegexDict["comment2"]))
+        if(lines[line].match(pythonRegexDict["comment"]) || lines[line].match(pythonRegexDict["comment_multi"]))
         {
             // comment
             lines[line] = lines[line].trim();
@@ -73,9 +86,7 @@ function parserFunction(lines)
             }
             catch(e)
             {
-                console.log(line);
-                console.log(lines[line]);
-                throw(e);
+                parse_error(e);
             }
         }
         else if(lines[line].match(pythonRegexDict["class"]))
@@ -87,9 +98,7 @@ function parserFunction(lines)
             }
             catch(e)
             {
-                console.log(line);
-                console.log(lines[line]);
-                throw(e);
+                parse_error(e);
 
             }
         }
@@ -102,9 +111,7 @@ function parserFunction(lines)
             }
             catch(e)
             {
-                console.log(line);
-                console.log(lines[line]);
-                throw(e);
+                parse_error(e);
             }
         }
         else if(lines[line].match(pythonRegexDict["for"]))
@@ -117,9 +124,7 @@ function parserFunction(lines)
             }
             catch(e)
             {
-                console.log(line);
-                console.log(lines[line]);
-                throw(e);
+                parse_error(e);
             }
         }
         else if (lines[line].match(pythonRegexDict["while"]))
@@ -132,12 +137,10 @@ function parserFunction(lines)
             }
             catch(e)
             {
-                console.log(line);
-                console.log(lines[line]);
-                throw(e);
+                parse_error(e);
             }
         }
-        else if (lines[line].match(pythonRegexDict["else"]))
+        else if(lines[line].match(pythonRegexDict["else"]))
         {
             // else statement
             try
@@ -146,12 +149,10 @@ function parserFunction(lines)
             }
             catch(e)
             {
-                console.log(line);
-                console.log(lines[line]);
-                throw(e);
+                parse_error(e);
             }
         }
-        else if (lines[line].match(pythonRegexDict["else if"]))
+        else if(lines[line].match(pythonRegexDict["else if"]))
         {
             // else if statement
             conditional = lines[line].substring(lines[line].lastIndexOf("elif ")+5,lines[line].lastIndexOf(":"));
@@ -161,12 +162,10 @@ function parserFunction(lines)
             }
             catch(e)
             {
-                throw(e)
-                console.log(line);
-                console.log(lines[line]);
+                parse_error(e);
             }
         }
-        else if (lines[line].match(pythonRegexDict["if"]))
+        else if(lines[line].match(pythonRegexDict["if"]))
         {
             // if statement
             conditional = lines[line].substring(lines[line].lastIndexOf("if ")+3,lines[line].lastIndexOf(":"));
@@ -176,12 +175,10 @@ function parserFunction(lines)
             }
             catch(e)
             {
-                console.log(line);
-                console.log(lines[line]);
-                throw(e);
+                parse_error(e);
             }
         }
-        else if (lines[line].match(pythonRegexDict["try"]))
+        else if(lines[line].match(pythonRegexDict["try"]))
         {
             // try statement
             conditional = lines[line].substring(lines[line].lastIndexOf("try ")+5,lines[line].lastIndexOf(":"));
@@ -191,12 +188,10 @@ function parserFunction(lines)
             }
             catch(e)
             {
-                console.log(line);
-                console.log(lines[line]);
-                throw(e);
+                parse_error(e);
             }
         }
-        else if (lines[line].match(pythonRegexDict["except"]))
+        else if(lines[line].match(pythonRegexDict["except"]))
         {
             // except statement
             conditional = lines[line].substring(lines[line].lastIndexOf("except ")+7,lines[line].lastIndexOf(":"));
@@ -206,12 +201,10 @@ function parserFunction(lines)
             }
             catch(e)
             {
-                console.log(line);
-                console.log(lines[line]);
-                throw(e);
+                parse_error(e);
             }
         }
-        else if (lines[line].match(pythonRegexDict["with"]))
+        else if(lines[line].match(pythonRegexDict["with"]))
         {
             // with statement
             conditional = lines[line].substring(lines[line].lastIndexOf("with ")+5,lines[line].lastIndexOf(":"));
@@ -221,12 +214,10 @@ function parserFunction(lines)
             }
             catch(e)
             {
-                throw(e)
-                console.log(line);
-                console.log(lines[line]);
+                parse_error(e);
             }
         }
-        else if (lines[line].match(pythonRegexDict["finally"]))
+        else if(lines[line].match(pythonRegexDict["finally"]))
         {
             // finally statement
             try
@@ -235,12 +226,10 @@ function parserFunction(lines)
             }
             catch(e)
             {
-                console.log(line);
-                console.log(lines[line]);
-                throw(e);
+                parse_error(e);
             }
         }
-        else if (lines[line].match(pythonRegexDict["comment"]))
+        else if(lines[line].match(pythonRegexDict["comment"]))
         {
             // comment
             lines[line] = lines[line].trim();
@@ -250,9 +239,20 @@ function parserFunction(lines)
             }
             catch(e)
             {
-                console.log(line);
-                console.log(lines[line]);
-                throw(e);
+                parse_error(e);
+            }
+        }
+        else if(lines[line].match(pythonRegexDict["decorator"]))
+        {
+            // comment
+            lines[line] = lines[line].trim();
+            try
+            {
+                eval(depthString+"  = lines[line]");
+            }
+            catch(e)
+            {
+                parse_error(e);
             }
         }
         else
@@ -265,9 +265,7 @@ function parserFunction(lines)
             }
             catch(e)
             {
-                console.log(line);
-                console.log(lines[line]);
-                throw(e);
+                parse_error(e);
             }
         }
         // previousDepth = currentDepth;

@@ -1,6 +1,7 @@
 // check if a correct file type is selected
 $("#fileinput").change(function()
 {
+  document.getElementById('loadingGIF').style.visibility='visible';
   if (this.value.substr(this.value.length - 3) != ".py" && this.value.substr(this.value.length - 4) != ".ppc") {
     isValid = false;
     alert("Not a .py file!");
@@ -25,7 +26,7 @@ $("#fileinput").change(function()
             var lines = this.result.split("\n");
             lines = clean(lines);
             json = parserFunction(lines);
-            isValid = true;
+            isValid = parser_success;
         }
       }
     }
@@ -47,4 +48,5 @@ $("#fileinput").change(function()
     }
   };
   reader.readAsText(file);
+  document.getElementById('loadingGIF').style.visibility='hidden';
 });

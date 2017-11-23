@@ -6,5 +6,5 @@ let json;
 
 $(document).ready(function()
 {
-
+  document.getElementById('loadingGIF').style.visibility='hidden';
 });
