@@ -6,4 +6,5 @@ $(".clearCanvas").on("click", function()
     stroke("lightgray");
     rect(0, 0, canvasWidth - 1, canvasHeight - 1);
     stroke("black");
+    imageDownloadable = false;
 });
