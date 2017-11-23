@@ -36,15 +36,8 @@ function clean(lines)
   {
     var l = lines[line];
 
-    console.log(line);
-    // console.log(lines[startMultiIndex]);
-    console.log(l);
-    console.log(l.match(/\\\s*$/g));
-    // console.log(!parenthesesAreBalanced(lines[startMultiIndex].concat(" " + l.trim())));
-
     if(multiLine == true)
     {
-      // lines[startMultiIndex] = lines[startMultiIndex].concat(" " + l.trim());
       //stay multi line
       if(l.match(/\\\s*$/g)  || !parenthesesAreBalanced(lines[startMultiIndex].concat(" " + l.trim())))
       {
@@ -58,23 +51,12 @@ function clean(lines)
       {
         if(parenthesesAreBalanced(lines[startMultiIndex].concat(" " + l.trim())))
         {
-          console.log("Ending with concatination");
           lines[startMultiIndex] = lines[startMultiIndex].concat(" " + l.trim());
           lines[line] = "";
           multiLine = false;
         }
-        // testing if current line is multiline
-        // if(l.match(/\\\s*$/g) || !parenthesesAreBalanced(l))
-        // {
-        //   console.log("starting a new multiline");
-        //   startMultiIndex = line;
-        //   multiLine = true;
-        // }
         else
         {
-
-          // lines[startMultiIndex] = lines[startMultiIndex].concat(" " + l.trim());
-          // lines[line] = "";
         //add to previous lines
         lines[line] = l;
         multiLine = false;
@@ -86,7 +68,6 @@ function clean(lines)
       //start multi line
       if(l.match(/\\\s*$/g) || !parenthesesAreBalanced(l))
       {
-        console.log("starting multi line");
         startMultiIndex = line;
         multiLine = true;
       }
