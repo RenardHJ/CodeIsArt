@@ -48,3 +48,8 @@ footer
     margin-top: 2em;
     color: grey;
 }
+
+#loadingGIF
+{
+  visibility: hidden;
+}
