@@ -25,7 +25,7 @@ $("#fileinput").change(function()
             var lines = this.result.split("\n");
             lines = clean(lines);
             json = parserFunction(lines);
-            isValid = true;
+            isValid = parser_success;
         }
       }
     }
