@@ -8,9 +8,12 @@ function depthStringGenerator(depthStack)
     return(depthString);
 }
 
+var parser_success = true;
+
 function parserFunction(lines)
 {
-    function parse_error()
+    parser_success = true;
+    function parse_error(e)
     {
       alert("Parsing failed! Try another file!");
       console.log(line);
@@ -18,8 +21,6 @@ function parserFunction(lines)
       parser_success = false;
       throw(e);
     }
-
-    var parser_success = true;
 
     var pythonRegexDict = {
         "class" :           "class .+:",
@@ -85,7 +86,7 @@ function parserFunction(lines)
             }
             catch(e)
             {
-                parse_error();
+                parse_error(e);
             }
         }
         else if(lines[line].match(pythonRegexDict["class"]))
@@ -97,7 +98,7 @@ function parserFunction(lines)
             }
             catch(e)
             {
-                parse_error();
+                parse_error(e);
 
             }
         }
@@ -110,7 +111,7 @@ function parserFunction(lines)
             }
             catch(e)
             {
-                parse_error();
+                parse_error(e);
             }
         }
         else if(lines[line].match(pythonRegexDict["for"]))
@@ -123,7 +124,7 @@ function parserFunction(lines)
             }
             catch(e)
             {
-                parse_error();
+                parse_error(e);
             }
         }
         else if (lines[line].match(pythonRegexDict["while"]))
@@ -136,7 +137,7 @@ function parserFunction(lines)
             }
             catch(e)
             {
-                parse_error();
+                parse_error(e);
             }
         }
         else if(lines[line].match(pythonRegexDict["else"]))
@@ -148,7 +149,7 @@ function parserFunction(lines)
             }
             catch(e)
             {
-                parse_error();
+                parse_error(e);
             }
         }
         else if(lines[line].match(pythonRegexDict["else if"]))
@@ -161,7 +162,7 @@ function parserFunction(lines)
             }
             catch(e)
             {
-                parse_error();
+                parse_error(e);
             }
         }
         else if(lines[line].match(pythonRegexDict["if"]))
@@ -174,7 +175,7 @@ function parserFunction(lines)
             }
             catch(e)
             {
-                parse_error();
+                parse_error(e);
             }
         }
         else if(lines[line].match(pythonRegexDict["try"]))
@@ -187,7 +188,7 @@ function parserFunction(lines)
             }
             catch(e)
             {
-                parse_error();
+                parse_error(e);
             }
         }
         else if(lines[line].match(pythonRegexDict["except"]))
@@ -200,7 +201,7 @@ function parserFunction(lines)
             }
             catch(e)
             {
-                parse_error();
+                parse_error(e);
             }
         }
         else if(lines[line].match(pythonRegexDict["with"]))
@@ -213,7 +214,7 @@ function parserFunction(lines)
             }
             catch(e)
             {
-                parse_error();
+                parse_error(e);
             }
         }
         else if(lines[line].match(pythonRegexDict["finally"]))
@@ -225,7 +226,7 @@ function parserFunction(lines)
             }
             catch(e)
             {
-                parse_error();
+                parse_error(e);
             }
         }
         else if(lines[line].match(pythonRegexDict["comment"]))
@@ -238,7 +239,7 @@ function parserFunction(lines)
             }
             catch(e)
             {
-                parse_error();
+                parse_error(e);
             }
         }
         else if(lines[line].match(pythonRegexDict["decorator"]))
@@ -251,7 +252,7 @@ function parserFunction(lines)
             }
             catch(e)
             {
-                parse_error();
+                parse_error(e);
             }
         }
         else
@@ -264,7 +265,7 @@ function parserFunction(lines)
             }
             catch(e)
             {
-                parse_error();
+                parse_error(e);
             }
         }
         // previousDepth = currentDepth;
