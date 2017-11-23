@@ -89,8 +89,8 @@ function depthFirst(obj)
       }
     }
     //Have to -2 or the shapes can be drawn outside of the border
-    var x = Math.random() * ((canvasWidth - 2) - w);
-    var y = Math.random() * ((canvasHeight - 2) - h);
+    var x = Math.random() * ((canvasWidth - 1) - w);
+    var y = Math.random() * ((canvasHeight - 1) - h);
 
     fill(color);
     rect(x, y, w, h);

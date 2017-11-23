@@ -1,3 +1,4 @@
+
 body
 {
     font-family:Lora;
@@ -21,9 +22,9 @@ h1, h2, h3
     border:none;
 }
 
-#canvas_container
+#canvas_container *
 {
-    /*border: 1px solid #dddddd;*/
+    border: 1px solid #dddddd;
 
 }
 
