@@ -14,7 +14,11 @@ $("#downloadPic").contextmenu(function()
 {
   if(isValid)
     if (confirm("Download .PPC version of file?") == true)
+    {
       downloadPPC();
+      return false;
+    }
+
 });
 
 function downloadPPC()
