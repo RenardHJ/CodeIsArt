@@ -1,12 +1,11 @@
 // check if a correct file type is selected
 $("#fileinput").change(function()
 {
-  document.getElementById('loadingGIF').style.visibility='visible';
   if (this.value.substr(this.value.length - 3) != ".py" && this.value.substr(this.value.length - 4) != ".ppc") {
     isValid = false;
     alert("Not a .py file!");
   } else {
-    //isValid = true;
+    document.getElementById('loadingGIF').style.visibility='visible';
     file = this.value;
     fileName = file.split('.')[0];
     fileName = fileName.split("C:\\fakepath\\")[1];
@@ -46,7 +45,8 @@ $("#fileinput").change(function()
         }
       }
     }
-  };
+    document.getElementById('loadingGIF').style.visibility='hidden';
+
+  }
   reader.readAsText(file);
-  document.getElementById('loadingGIF').style.visibility='hidden';
 });
