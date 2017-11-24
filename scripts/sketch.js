@@ -23,3 +23,14 @@ $(".clearCanvas").on("click", function()
     stroke("black");
     imageDownloadable = false;
 });
+
+window.onresize = function()
+{
+  var w = document.getElementById('canvas_container').offsetWidth;
+  var h = w / 2;
+
+  canvas.size(w, h);
+
+  canvasHeight= w;
+  canvasWidth = h;
+}
