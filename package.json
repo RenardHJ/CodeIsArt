@@ -1,9 +1,9 @@
 {
-  "name": "CodeIsArt",
+  "name": "Python Portraits",
   "version": "0.0.3",
   "description": "TODO",
   "main": "index.html",
-  "repository": "TODO",
+  "repository": "https://github.com/RenardHJ/Python_Portraits",
   "authors": [
     "<renardhj@gmail.com>",
     "<AARON DYKE>"
