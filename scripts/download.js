@@ -13,20 +13,20 @@ function downloadCanvas()
 $("#downloadPic").contextmenu(function()
 {
   if(isValid)
-    if (confirm("Download .PPC version of file?") == true)
+    if (confirm("Download .JSON version of file?") == true)
     {
-      downloadPPC();
+      downloadJSON();
       return false;
     }
 
 });
 
-function downloadPPC()
+function downloadJSON()
 {
   var data = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(json, 0, 4));
   var a = document.createElement('a');
   a.href = 'data:' + data;
-  a.download = fileName + '.PPC';
+  a.download = fileName + '.json';
   a.innerHTML = 'download JSON';
 
   var container = document.getElementById('body');
