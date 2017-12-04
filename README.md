@@ -1,11 +1,11 @@
 # Python Portraits
-Version: 0.2
+Version: 0.0.3
 
 **[Temporary Website](http://cs.umw.edu/~hrenard/pp/)**
 
 Made for the 2017 UMW Hackathon
 
-The purpose of this project is to create a usable web application that allows for python code to be visually represented on a canvas.
+The purpose of this project is to create a lightweight web application that allows for python code to be visually represented on a canvas.
 
 **We will be adding a documents folder soon for information not found in this document.**
 
