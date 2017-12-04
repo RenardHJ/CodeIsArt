@@ -1,7 +1,7 @@
 // check if a correct file type is selected
 $("#fileinput").change(function()
 {
-  if (this.value.substr(this.value.length - 3) != ".py" && this.value.substr(this.value.length - 4) != ".ppc") {
+  if (this.value.substr(this.value.length - 3) != ".py" && this.value.substr(this.value.length - 4) != ".json") {
     isValid = false;
     alert("Not a .py file!");
   } else {
