@@ -27,6 +27,7 @@ function parenthesesAreBalanced(string)
   return stack.length === 0;
 }
 
+// this function concatinates multiline lines made using \s or unfinished parentheses 
 function clean(lines)
 {
   var multiLine = false;
@@ -80,4 +81,45 @@ function clean(lines)
     }
   }
   return(lines);
+}
+
+function multilineCommentsConcat(lines)
+{
+  var multiLine = false;
+  var startMultiIndex;
+
+  for(line in lines)
+  {
+    var l = lines[line];
+    if(multiLine)
+    {
+      if(l.match("/'/'/'$"))
+      {
+        // end of multiline
+      }
+      else
+      {
+        // stay in multiline
+      }
+    }
+    else
+    {
+      if(l.match("^/s*/'/'/'.*"))
+      {
+        // starting a multiline
+        if(l.match("/'/'/'$"))
+        {
+          // starts and ends multiline on same line
+        }
+        else
+        {
+          // just starts multiline
+        }
+      }
+      else
+      {
+        // not a multiline at all
+      }
+    }
+  }
 }

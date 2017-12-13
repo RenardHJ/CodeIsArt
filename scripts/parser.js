@@ -54,6 +54,9 @@ function parserFunction(lines)
 
     for(line in lines)
     {
+
+        console.log(lines[line]);
+
         // Skip line if it is blank or only has white spaces
         if(lines[line] == "" || /^\s*$/.test(lines[line])) continue;
 
