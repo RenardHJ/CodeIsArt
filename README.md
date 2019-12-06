@@ -1,7 +1,7 @@
 # Python Portraits
 Version: 0.0.3
 
-**[Temporary Website](http://cs.umw.edu/~hrenard/pp/)**
+**[Live Website](http://hunterrenard.com/python-portraits/)**
 
 Made for the 2017 UMW Hackathon
 
